@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <link rel="website icon" type="jpg" href="{{ url_for('static', filename='pic/4ed71003-870f-4434-bf0b-132654eeb671-removebg-preview.png') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registration for Home Tutor</title>
+</head>
+<body>
+        <div class="form">
+        <form action="{{ url_for('signup') }}" method="POST" id="registration-form">
+                <div>
+                        <h1>Registration</h1>
+                </div>
+                {% if msg %}
+                <div class="message">{{ msg }}</div>
+                {% endif %}
+                <div class="box">
+                        <i class="fa-solid fa-user icon"></i>
+                        <input
+                                type="text"
+                                placeholder="Full Name"
+                                name="full_name"
+                                required
+                        >
+                </div>
+                <div class="box">
+                        <i class="fa-solid fa-envelope icon"></i>
+                        <input
+                                type="email"
+                                placeholder="E-mail"
+                                name="email"
+                                required
+                        >
+                </div>
+                <div class="box">
+                        <i class="fa-solid fa-address-book icon"></i>
+                        <input
+                                type="tel"
+                                placeholder="Contact"
+                                name="contact"
+                        >
+                </div>
+                <div class="box upload">
+                        <i class="fa-solid fa-upload icon"></i>
+                        <input
+                                type="file"
+                                id="uploadbtn"
+                                name="resume"
+                        >
+                        <label for="uploadbtn">Upload Resume</label>
+                </div>
+                <div class="rf">
+                        *The resume file must be less then 2mb .
+                </div>
+                <div class="box">
+                        <i class="fa fa-lock icon" aria-hidden="true"></i>
+                        <input
+                                type="password"
+                                placeholder="Password"
+                                name="password"
+                                required
+                        >
+                </div>
+                <div class="box">
+                        <i class="fa fa-lock icon" aria-hidden="true"></i>
+                        <input
+                                type="password"
+                                placeholder="Confirm Password"
+                                name="confirm_password"
+                                required
+                        >
+                </div>
+                <div class="para">
+                        *After the Registration process, You will get an email after the resume review.
+                </div>
+                <div class="button">
+                        <input type="submit" value="Register">
+                </div>
+        </form>
+        <div class="confirmation-message" style="display: none;">
+                You are registered on our website. You will get an email after the resume review.
+        </div>
+        </div>
+</body>
+</html>

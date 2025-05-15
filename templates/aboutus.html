@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="website icon" type="jpg" href="/static//pic/4ed71003-870f-4434-bf0b-132654eeb671-removebg-preview.png">
+    <link rel="stylesheet" href="/static/css/header-footer.css">
+    <script src="/static/JavaScript/header&footer.js"></script>
+    <link rel="stylesheet" href="/static/css/aboutus.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Manrope&family=Noto+Nastaliq+Urdu&family=Pacifico&family=Roboto&family=Tilt+Prism&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Tutoring</title>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo"><img src="/static/pic/4ed71003-870f-4434-bf0b-132654eeb671-removebg-preview.png" class="pic" alt="Home Tutoring Logo"></a>
+        <input type="checkbox" id="menu-bar">
+        <label for="menu-bar" class="menu">Menu</label>
+        <nav class="navbar">
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('OurTutors') }}">OurTutors</a></li>
+                <li><a href="#">More <i class="fas fa-caret-down icon"></i></a>
+                    <ul>
+                        <li><a href="{{ url_for('aboutus') }}">About us</a></li>
+                        <li><a href="{{ url_for('founder') }}">Founder</a></li>
+                        <li><a href="{{ url_for('FAQs') }}">FAQs</a></li>
+                    </ul>
+                </li>
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <br><br><br>
+    
+    <div class="box">
+        <div class="boxstyle">
+            <div class="icon"><i class="fa-solid fa-eye"></i></div>
+            <h2>Our Vision</h2>
+            <p>Our vision is to create a future where every student, regardless of their background, has the opportunity to thrive academically and personally. We envision a world where learning is an exciting and transformative journey, and where each student discovers their unique potential. Through our dedicated tutoring and mentorship, we aspire to ignite a lifelong love for learning and empower individuals to achieve their dreams and make a positive impact on society.</p>
+        </div>
+        <div class="boxstyle">
+            <div class="icon"><i class="fa-solid fa-bullseye"></i></div>
+            <h2>Our Mission</h2>
+            <p>Our mission is to provide exceptional tutoring and guidance that caters to the diverse needs of every student we serve. We are committed to fostering a supportive learning environment where students can excel academically, build confidence, and develop essential skills. Our team of dedicated educators is passionate about tailoring our approach to each student's unique learning style, helping them reach their academic and personal goals.</p>
+        </div>
+    </div>
+    <div class="about">
+        <h2>Our Beliefs</h2><br>
+        <p>At Home Tutoring.com, we believe that every student deserves a personal tutor, and we are dedicated to promoting equity, opportunity, and achievement for all learners. To that end, we partner with colleges and universities, K–12 schools and districts, public and state libraries, employee benefits programs, 1-to-1 tutoring and homework help in more than 250 subjects.</p>
+        <br><p>Over more than two decades of supporting students, educators, school leaders, and families, we have helped institutions increase student pass and persistence rates, and learners become more confident in their schoolwork. Our learner satisfaction rates remain consistently high: 97 percent of post-session survey respondents would recommend Tutor.com to a friend, and 98 percent are glad their institution offers Tutor.com. The feeling is mutual. We are honored to partner with institutions and organizations to help them scale the human connection and provide individualized support—anytime, anywhere.</p>
+        <br><h2>Our Story</h2><br>
+        <p>In 1998, a small group of passionate education and tech professionals had a terrific URL and a big idea—use the Internet to connect students to tutors whenever and wherever they needed help. So, they recruited about a hundred tutors and created one of the first online, interactive classrooms.</p><br>
+        <p>In 2000, Home Tutoring.com, Inc. was incorporated and began partnering with institutions to ensure that students from all socioeconomic backgrounds would have access to highly effective 1-to-1 tutoring and homework help, day or night, from any Internet-enabled device.</p><br>
+        <p>In 2014, Home Tutoring.com acquired The Princeton Review®, a world leader in education services, and added The Princeton Review test preparation services to its online tutoring platform and offerings.</p><br>
+        <br><br>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">About Home Tutoring</a></li>
+                        <li><a href="#">Teams and Careers</a></li>
+                        <li><a href="#">For parents</a></li>
+                        <li><a href="#">Partner with us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact us</h4>
+                    <ul>
+                        <li><a href="#">contact@home-class.com</a></li>
+                        <li><a href="">+44 2032397887</a></li>
+                        <li><a href="">service01@home-class.com</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Apply to be a tutor</h4>
+                    <ul>
+                        <li><a href="#">tutor@home-class.com</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Home Tutoring</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,489 @@
+/* General Body Style */
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #333; /* Dark grey for better readability - Kept */
+  margin: 0;
+  padding: 0;
+  background-color: #FAF9F6; /* SCENARIO A: Changed to a Serene Cream/Off-white */
+  overflow-x: hidden; /* Prevent horizontal scroll issues */
+}
+
+/* Hero Section Styling */
+.hero-section {
+  /* SCENARIO A: Changed to a sophisticated navy blue gradient */
+  background: linear-gradient(135deg, #001f3f 0%, #003366 100%); /* Deep Navy to a slightly lighter, but still dark, navy */
+  color: white; /* Kept for contrast */
+  padding: 80px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  box-sizing: border-box;
+}
+
+.hero-content h1 {
+  font-family: 'ADLaM Display', cursive;
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: slideFadeIn 0.8s ease-out forwards;
+}
+
+.hero-content p {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.15rem;
+  margin-bottom: 30px;
+  max-width: 650px;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: slideFadeIn 0.8s ease-out 0.3s forwards; /* Staggered animation */
+}
+
+.cta-button {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  background-color: #ffffff; /* White button on dark background - Kept */
+  color: #001f3f; /* SCENARIO A: Changed to Navy Blue for text */
+  padding: 14px 28px;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 1.05rem;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: slideFadeIn 0.8s ease-out 0.6s forwards; /* Staggered animation */
+  display: inline-block;
+}
+
+.cta-button:hover {
+  background-color: #f0f0f0; /* Slightly off-white on hover - Kept */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Heading for Classes Section */
+.heading-container { /* Renamed from .heading to avoid conflict if .heading is generic */
+  padding: 3.5rem 2rem 1.5rem 2rem; /* Adjusted padding */
+  text-align: center;
+}
+
+.section-heading { /* New class for the h1 inside .heading-container */
+  font-family: "Dancing Script", cursive;
+  color: #b08d57; /* SCENARIO A: Changed to Muted Gold for an academic accent */
+  font-size: 2.6rem;
+  margin: 0;
+  opacity: 0; /* For scroll animation */
+  transform: translateY(20px); /* For scroll animation */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* For JavaScript */
+}
+
+.section-heading.visible { /* Class added by JavaScript */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.main-classes-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto 3rem auto;
+}
+
+.classes-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 1.8rem;
+  padding: 1rem 0;
+}
+
+.class-icon {
+  background-color: #ffffff; /* SCENARIO A: White background for clean look, fits with creams/light grays */
+  text-align: center;
+  padding: 1.8rem 1rem;
+  border: 1px solid #e0e0e0; /* Light gray border */
+  border-radius: 12px;
+  font-family: "Black Ops One", cursive;
+  color: #333;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.class-icon.visible { /* Class added by JavaScript for staggered animation */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.class-icon h3 {
+    margin-top: 0;
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+    color: #001f3f; /* SCENARIO A: Changed to Navy Blue */
+}
+
+.class-icon img {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  margin-bottom: 0.8rem;
+  border-radius: 8px;
+}
+
+.class-description {
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.8rem;
+    color: #555; /* Kept for readability */
+    line-height: 1.35;
+    min-height: 30px;
+    margin-top: 0.5rem;
+    padding: 0 0.5rem;
+}
+
+.class-icon:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Keyframe animation for hero content intro */
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1080px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+    .classes-list {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+  .hero-section {
+    padding: 70px 15px;
+    min-height: 55vh;
+  }
+  .hero-content h1 {
+    font-size: 2.1rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
+  .cta-button {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+  .section-heading {
+    font-size: 2.2rem;
+  }
+  .heading-container {
+    padding: 3rem 1rem 1rem 1rem;
+  }
+  .classes-list {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 1.2rem;
+  }
+  .class-icon {
+    padding: 1.5rem 0.8rem;
+  }
+  .class-icon img {
+    width: 75px;
+    height: 75px;
+  }
+  .class-description {
+    font-size: 0.75rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero-section {
+    padding: 60px 10px;
+    min-height: 50vh;
+  }
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+  .hero-content p {
+      font-size: 0.9rem;
+      max-width: 90%;
+  }
+  .section-heading {
+    font-size: 1.9rem;
+  }
+  .classes-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .main-classes-container {
+    width: 95%;
+  }
+  .class-icon {
+    padding: 1.2rem 0.5rem;
+  }
+  .class-icon h3 {
+    font-size: 1rem;
+  }
+  .class-icon img {
+    width: 65px;
+    height: 65px;
+  }
+   .class-description {
+    font-size: 0.7rem;
+    min-height: 25px;
+  }
+}
+/* General Styles for New Sections */
+.content-section {
+    padding: 50px 20px;
+}
+
+.content-section .container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.content-section .heading-container {
+    margin-bottom: 40px;
+}
+
+.alt-bg {
+    background-color: #F0F0F0; /* SCENARIO A: Changed to a Light Gray for serene contrast */
+}
+
+/* How It Works Section */
+.steps-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.step {
+    background-color: #fff; /* SCENARIO A: White background for clean look */
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.step:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.step-icon {
+    font-size: 2.5rem;
+    color: #001f3f; /* SCENARIO A: Changed to Navy Blue */
+    margin-bottom: 15px;
+    line-height: 1;
+}
+
+.step h3 {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #333; /* Kept */
+    margin-bottom: 10px;
+}
+
+.step p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.95rem;
+    color: #555; /* Kept */
+    line-height: 1.6;
+}
+
+/* Why Choose Us Section */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.feature-item {
+    background-color: #fff; /* SCENARIO A: White background for clean look */
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+    font-size: 2.2rem;
+    color: #001f3f; /* SCENARIO A: Changed to Navy Blue */
+    margin-bottom: 15px;
+}
+
+.feature-item h3 {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #333; /* Kept */
+    margin-bottom: 10px;
+}
+
+.feature-item p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    color: #666; /* Kept */
+    line-height: 1.5;
+}
+
+/* Testimonials Section */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.testimonial-card {
+    background-color: #ffffff; /* SCENARIO A: White background for a cleaner, neutral look - Kept */
+    padding: 25px;
+    border-radius: 10px;
+    border-left: 5px solid #b08d57; /* SCENARIO A: Changed to Muted Gold accent */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+    opacity: 0;
+    transform: translateY(20px);
+}
+.testimonial-card p {
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: #444; /* Kept */
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.testimonial-card h4 {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #b08d57; /* SCENARIO A: Changed to Muted Gold to match border */
+    text-align: right;
+}
+
+/* Final CTA Section */
+.cta-final-section {
+    /* SCENARIO A: Changed to a darker navy blue gradient */
+    background: linear-gradient(135deg, #001a33 0%, #001020 100%); /* Darker Navy gradient */
+    color: #fff; /* Kept */
+    padding: 70px 20px;
+}
+
+.cta-final-section .container.text-center {
+    text-align: center;
+}
+
+.section-heading-light {
+    font-family: 'ADLaM Display', cursive;
+    color: #fff; /* Kept */
+    font-size: 2.4rem;
+    margin-bottom: 15px;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.cta-text-light {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.1rem;
+    color: #f0f0f0; /* Kept for light text on dark background */
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.cta-button.large {
+    padding: 18px 35px;
+    font-size: 1.15rem;
+    font-weight: bold;
+    opacity: 0;
+    transform: translateY(20px);
+    /* SCENARIO A: The .cta-button already has color #001f3f and background #ffffff, this will be inherited. */
+    /* If you need a different style for this specific button, you can override here. */
+}
+
+/* Animation visibility */
+.step.visible,
+.feature-item.visible,
+.testimonial-card.visible,
+.section-heading-light.visible,
+.cta-text-light.visible,
+.cta-button.large.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive adjustments for new sections */
+@media screen and (max-width: 768px) {
+    .content-section {
+        padding: 40px 15px;
+    }
+    .steps-container, .features-grid, .testimonials-grid {
+        gap: 20px;
+    }
+    .step, .feature-item, .testimonial-card {
+        padding: 20px 15px;
+    }
+    .step h3, .feature-item h3 {
+        font-size: 1.15rem;
+    }
+    .section-heading-light {
+        font-size: 2rem;
+    }
+    .cta-text-light {
+        font-size: 1rem;
+    }
+    .cta-button.large {
+        padding: 15px 30px;
+        font-size: 1.05rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .steps-container {
+        grid-template-columns: 1fr;
+    }
+    .feature-item h3 {
+        font-size: 1.1rem;
+    }
+    .testimonial-card p {
+        font-size: 0.9rem;
+    }
+    .testimonial-card h4 {
+        font-size: 0.85rem;
+    }
+    .section-heading-light {
+        font-size: 1.8rem;
+    }
+}

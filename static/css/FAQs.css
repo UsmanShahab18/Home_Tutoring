@@ -1,0 +1,93 @@
+.wrapper {
+    padding-top: 20px;
+    max-width: 75%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.wrapper > h1 {
+    margin: 1.5rem 0;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.wrapper h2 {
+    margin: 1.5rem 0;
+}
+
+.faq {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.faq.active {
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.faq .accordion {
+    background: rgba(143, 211, 244, 0.1);
+    color: rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+    font-size: 1.2rem;
+    width: 100%;
+    padding: 1.5rem 2.5rem;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+.accordion i {
+    font-size: 1.6rem;
+}
+
+.active,
+.accordion:hover {
+    background: rgba(132, 250, 176, 0.1);
+}
+
+.pannel {
+    padding: 0 2rem;
+    background: rgba(132, 250, 176, 0.1);
+    overflow: hidden;
+    text-align: justify;
+    max-height: 0;
+    transition: max-height 0.3s ease-in-out;
+}
+
+.faq.active .pannel {
+    max-height: 1000px;
+    background: rgba(143, 211, 244, 0.1);
+    padding-bottom: 2.5rem;
+}
+
+.pannel p {
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 1.2rem;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* Add any specific mobile styles for the FAQs page here if needed */
+/* Example:
+@media (max-width: 991px) {
+    .wrapper {
+        width: 95%;
+    }
+    .faq .accordion {
+        padding: 1rem 1.5rem;
+    }
+    .pannel {
+        padding: 0 1.5rem;
+    }
+    .faq.active .pannel {
+        padding-bottom: 1.5rem;
+    }
+}
+*/

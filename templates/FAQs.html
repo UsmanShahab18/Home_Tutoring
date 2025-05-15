@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="website icon" type="jpg" href="/static//pic/4ed71003-870f-4434-bf0b-132654eeb671-removebg-preview.png">
+    <link rel="stylesheet" href="/static/css/header-footer.css">
+    <script src="/static/JavaScript/header&footer.js"></script>
+    <script src="/static/JavaScript/FAQs.js"></script>
+    <link rel="stylesheet" href="/static/css/FAQs.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Manrope&family=Noto+Nastaliq+Urdu&family=Pacifico&family=Roboto&family=Tilt+Prism&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs</title>
+</head>
+<body>
+        <header>
+        <a href="#" class="logo"><img src="/static/pic/4ed71003-870f-4434-bf0b-132654eeb671-removebg-preview.png" class="pic" alt="Home Tutoring Logo"></a>
+        <input type="checkbox" id="menu-bar">
+        <label for="menu-bar" class="menu">Menu</label>
+        <nav class="navbar">
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('OurTutors') }}">OurTutors</a></li>
+                <li><a href="#">More <i class="fas fa-caret-down icon"></i></a>
+                    <ul>
+                        <li><a href="{{ url_for('aboutus') }}">About us</a></li>
+                        <li><a href="{{ url_for('founder') }}">Founder</a></li>
+                        <li><a href="{{ url_for('FAQs') }}">FAQs</a></li>
+                    </ul>
+                </li>
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <br><br><br>
+
+    <div class="wrapper">
+        <h1>FAQs</h1>
+        <h2>Features of online Tutoring</h2>
+        <div class="faq ">
+            <button class="accordion">
+                Q1) What features are available?
+            </button>
+            <div class="pannel">
+                <p>
+                    There are interactive courseware, collaborative blackboard, and rich forms of student-teacher interaction in the classroom.
+                    Online help is available at any time if you encounter problems. After the live class, you can also view the class replay 
+                    and review the content of the class.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq">
+            <button class="accordion">
+                Q2) Do Ineed a microphone and webcam?
+            </button>
+            <div class="pannel">
+                <p>
+                    Yes, you will need a microphone and a webcam so that you can communicate directly with the tutor.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq">
+            <button class="accordion">
+                Q3) How does the playback feature work?
+            </button>
+            <div class="pannel">
+                <p>
+                    Once the lesson starts, the system will automatically record the sound and lesson content during the lesson, and you can view
+                    the playback on the client after the lesson is over. Don’t worry about your privacy, your video picture will not be visible.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq">
+            <button class="accordion">
+                Q4) How do i use the online help?
+            </button>
+            <div class="pannel">
+                <p>
+                    If you encounter any problems during the lesson, you can Click on the ‘Online help’ button in the upper right corner of the 
+                    classroom. After you describe your question, our technical support staff will establish a dialogue with you instantly to solve your problem.
+                </p>
+            </div>
+        </div>
+
+        <h2>Technical Question</h2>
+        <div class="faq">
+            <button class="accordion">
+                Q1) Installation of a new version fails
+            </button>
+            <div class="pannel">
+                <p>
+                    Please uninstall the old version first 
+                </p>
+            </div>
+        </div>
+
+        <div class="faq">
+            <button class="accordion">
+                Q2) My screen is blank when logging into the Online-Class client.
+            </button>
+            <div class="pannel">
+                <p>
+                    Please try to restart the client and log in again.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq">
+            <button class="accordion">
+                Q3) Can’t see your video or hear the sound after entering the classroom.
+            </button>
+            <div class="pannel">
+                <p>
+                    Before using Online-Class, please close Zoom, Google Meet and other
+                    meeting programs. Then perform device detection. The camera can 
+                    only be seen when both parties enter the classroom. Please re-plug 
+                    the external device and check if it is connected. Refresh the 
+                    classroom afterwards. If you still can't see it during the class, 
+                    please check if you are using the correct client.
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <br><br>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">About Home Tutoring</a></li>
+                        <li><a href="#">Teams and Careers</a></li>
+                        <li><a href="#">For parents</a></li>
+                        <li><a href="#">Partner with us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact us</h4>
+                    <ul>
+                        <li><a href="#">contact@home-class.com</a></li>
+                        <li><a href="">+44 2032397887</a></li>
+                        <li><a href="">service01@home-class.com</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Apply to be a tutor</h4>
+                    <ul>
+                        <li><a href="#">tutor@home-class.com</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Home Tutoring</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

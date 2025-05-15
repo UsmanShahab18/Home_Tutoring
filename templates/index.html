@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="website icon" type="image/png" href="/pic/4ed71003-870f-4434-bf0b-132654eeb671-removebg-preview.png">
+        <link rel="stylesheet" href="/static/css/header-footer.css">
+        <link rel="stylesheet" href="/static/css/index.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Black+Ops+One&family=Dancing+Script&family=Manrope:wght@400;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home Tutoring</title>
+    </head>
+<body>
+
+    <header>
+        <a href="#" class="logo"><img src="/static/pic/4ed71003-870f-4434-bf0b-132654eeb671-removebg-preview.png" class="pic" alt="Home Tutoring Logo"></a>
+        <input type="checkbox" id="menu-bar">
+        <label for="menu-bar" class="menu">Menu</label>
+        <nav class="navbar">
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('OurTutors') }}">OurTutors</a></li>
+                <li><a href="#">More <i class="fas fa-caret-down icon"></i></a>
+                    <ul>
+                        <li><a href="{{ url_for('aboutus') }}">About us</a></li>
+                        <li><a href="{{ url_for('founder') }}">Founder</a></li>
+                        <li><a href="{{ url_for('FAQs') }}">FAQs</a></li>
+                    </ul>
+                </li>
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Unlock Your Potential with Expert Home Tutoring</h1>
+            <p>Personalized learning experiences designed to help you succeed. Explore our wide range of subjects and find the perfect tutor today.</p>
+            <a href="OurTutors.html" class="cta-button">Find Your Tutor</a>
+        </div>
+    </section>
+
+    <div class="heading-container">
+        <h2 class="section-heading">Exploring Our Classes</h2> </div>
+    <div class="main-classes-container">
+        <div class="classes-list">
+            <div class="class-icon">
+                <h3>Math</h3>
+                <img src="/static/pic/math.png" alt="Math Icon" loading="lazy">
+                <p class="class-description">Master numbers and problem-solving.</p>
+            </div>
+            <div class="class-icon">
+                <h3>English</h3>
+                <img src="/static/pic/english.png" alt="English Icon" loading="lazy">
+                <p class="class-description">Enhance your language and literacy.</p>
+            </div>
+            <div class="class-icon">
+                <h3>Chinese</h3>
+                <img src="/static/pic/chinese.png" alt="Chinese Icon" loading="lazy">
+                <p class="class-description">Discover the richness of Chinese.</p>
+            </div>
+            <div class="class-icon">
+                <h3>Biology</h3>
+                <img src="/static/pic/biology.png" alt="Biology Icon" loading="lazy">
+                <p class="class-description">Explore the science of life.</p>
+            </div>
+            <div class="class-icon">
+                <h3>Chemistry</h3>
+                <img src="/static/pic/chemistry.png" alt="Chemistry Icon" loading="lazy">
+                <p class="class-description">Uncover secrets of matter.</p>
+            </div>
+            <div class="class-icon">
+                <h3>Physics</h3>
+                <img src="/static/pic/physics.png" alt="Physics Icon" loading="lazy">
+                <p class="class-description">Understand the laws of the universe.</p>
+            </div>
+            <div class="class-icon">
+                <h3>History</h3>
+                <img src="/static/pic/history.png" alt="History Icon" loading="lazy">
+                <p class="class-description">Journey through past events.</p>
+            </div>
+            <div class="class-icon">
+                <h3>Economics</h3>
+                <img src="/static/pic/economics.png" alt="Economics Icon" loading="lazy">
+                <p class="class-description">Learn about markets and finance.</p>
+            </div>
+            <div class="class-icon">
+                <h3>Geography</h3>
+                <img src="/static/pic/geography.png" alt="Geography Icon" loading="lazy">
+                <p class="class-description">Discover Earth's landscapes.</p>
+            </div>
+            <div class="class-icon">
+                <h3>Philosophy</h3>
+                <img src="/static/pic/philosophy.png" alt="Philosophy Icon" loading="lazy">
+                <p class="class-description">Explore fundamental questions.</p>
+            </div>
+        </div>
+    </div>
+
+    <section class="how-it-works-section content-section">
+        <div class="container">
+            <div class="heading-container">
+                <h2 class="section-heading">How It Works</h2>
+            </div>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-icon"><i class="fas fa-user-plus"></i></div>
+                    <h3>1. Sign Up</h3>
+                    <p>Create your account in a few simple steps and tell us about your learning needs.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon"><i class="fas fa-search"></i></div>
+                    <h3>2. Find Your Tutor</h3>
+                    <p>Browse our expert tutors, check their profiles, and select the one that fits you best.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon"><i class="fas fa-calendar-alt"></i></div>
+                    <h3>3. Schedule Sessions</h3>
+                    <p>Book sessions at your convenience. Our flexible scheduling fits your busy life.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                    <h3>4. Start Learning</h3>
+                    <p>Connect with your tutor online and begin your personalized learning journey.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-choose-us-section content-section alt-bg">
+        <div class="container">
+            <div class="heading-container">
+                <h2 class="section-heading">Why Choose Us?</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-user-tie"></i></div>
+                    <h3>Expert Tutors</h3>
+                    <p>Our tutors are highly qualified, experienced, and passionate about teaching.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-cogs"></i></div>
+                    <h3>Personalized Learning</h3>
+                    <p>Tailored lessons to match your individual learning style and pace.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-clock"></i></div>
+                    <h3>Flexible Scheduling</h3>
+                    <p>Learn anytime, anywhere. Schedule sessions that fit your lifestyle.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-book-open"></i></div>
+                    <h3>Wide Range of Subjects</h3>
+                    <p>From Math to Music, we cover a diverse array of academic subjects.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                    <h3>Affordable Plans</h3>
+                    <p>Quality education doesn't have to break the bank. Competitive pricing.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><i class="fas fa-headset"></i></div>
+                    <h3>Dedicated Support</h3>
+                    <p>We are here to help you every step of the way. Contact us anytime.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section content-section">
+        <div class="container">
+            <div class="heading-container">
+                <h2 class="section-heading">What Our Users Say</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p>"My daughter's grades improved significantly after just a few sessions. The tutor was fantastic!"</p>
+                    <h4>- Sarah K. (Parent)</h4>
+                </div>
+                <div class="testimonial-card">
+                    <p>"I finally understand calculus! The personalized approach made all the difference. Highly recommend."</p>
+                    <h4>- John B. (Student)</h4>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Flexible scheduling and amazing tutors. This platform is a lifesaver for busy students like me."</p>
+                    <h4>- Aisha M. (Student)</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-final-section content-section alt-bg">
+        <div class="container text-center">
+            <h2 class="section-heading-light">Ready to Start Your Learning Adventure?</h2>
+            <p class="cta-text-light">Join thousands of students achieving their academic goals with us.</p>
+            <a href="{{ url_for('signup') }}" class="cta-button large">Sign Up for Free</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">About Home Tutoring</a></li>
+                        <li><a href="#">Teams and Careers</a></li>
+                        <li><a href="#">For parents</a></li>
+                        <li><a href="#">Partner with us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact us</h4>
+                    <ul>
+                        <li><a href="#">contact@home-class.com</a></li>
+                        <li><a href="#">+44 2032397887</a></li>
+                        <li><a href="#">service01@home-class.com</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Apply to be a tutor</h4>
+                    <ul>
+                        <li><a href="#">tutor@home-class.com</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Home Tutoring</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/JavaScript/header&footer.js"></script>
+    <script src="/static/JavaScript/index.js"></script>
+</body>
+</html>

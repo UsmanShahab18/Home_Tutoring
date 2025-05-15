@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Tutors - Home Tutoring</title>
+    <link rel="website icon" type="jpg" href="/static/pic/4ed71003-870f-4434-bf0b-132654eeb671-removebg-preview.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/header-footer.css">
+    <link rel="stylesheet" href="/static/css/ourtutors.css">
+    <script src="/static/JavaScript/header&footer.js"></script>
+    </head>
+<body>
+
+    <header>
+        <a href="#" class="logo"><img src="/static/pic/4ed71003-870f-4434-bf0b-132654eeb671-removebg-preview.png" class="pic" alt="Home Tutoring Logo"></a>
+        <input type="checkbox" id="menu-bar">
+        <label for="menu-bar" class="menu">Menu</label>
+        <nav class="navbar">
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('OurTutors') }}">OurTutors</a></li>
+                <li><a href="#">More <i class="fas fa-caret-down icon"></i></a>
+                    <ul>
+                        <li><a href="{{ url_for('aboutus') }}">About us</a></li>
+                        <li><a href="{{ url_for('founder') }}">Founder</a></li>
+                        <li><a href="{{ url_for('FAQs') }}">FAQs</a></li>
+                    </ul>
+                </li>
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container main-content">
+        <h1 class="text-center page-title">Meet Our Tutors</h1>
+
+        <div class="row sub_container">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <div class="tutor-profile panel panel-default">
+                    <div class="panel-body text-center">
+                        <img src="/static/pic/Tutor_Pic/1.jpg" class="img-responsive img-circle tutor-img" alt="Ms. Sophia Green">
+                        <h3 class="tutor-name">Ms. Sophia Green</h3>
+                        <p class="tutor-education">BS Biology, University of Toronto</p>
+                        <p class="tutor-subjects">Subjects Taught: Biology, Chemistry, Geography</p>
+                        <a href="#" class="btn btn-primary tutor-link">View Profile</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <div class="tutor-profile panel panel-default">
+                    <div class="panel-body text-center">
+                        <img src="/static/pic/Tutor_Pic/2.jpg" class="img-responsive img-circle tutor-img" alt="Tutor Name Placeholder">
+                        <h3 class="tutor-name">Ms. Charlotte Hughes</h3>
+                        <p class="tutor-education">BA Economics & East Asian Studies, Harvard University</p>
+                        <p class="tutor-subjects">Subjects Taught: Chinese, Economics, Geography</p>
+                        <a href="#" class="btn btn-primary tutor-link">View Profile</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <div class="tutor-profile panel panel-default">
+                    <div class="panel-body text-center">
+                        <img src="/static/pic/Tutor_Pic/3.jpg" class="img-responsive img-circle tutor-img" alt="Tutor Name Placeholder">
+                        <h3 class="tutor-name">Mr. John Anderson</h3>
+                        <p class="tutor-education">MSc Mathematics, University of Cambridge</p>
+                        <p class="tutor-subjects">Subjects Taught: Math, Physics, Chemistry.</p>
+                        <a href="#" class="btn btn-primary tutor-link">View Profile</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <div class="tutor-profile panel panel-default">
+                    <div class="panel-body text-center">
+                        <img src="/static/pic/Tutor_Pic/4.jpg" class="img-responsive img-circle tutor-img" alt="Tutor Name Placeholder">
+                        <h3 class="tutor-name">Ms. Olivia Bennett</h3>
+                        <p class="tutor-education">MSc Physics, Stanford University</p>
+                        <p class="tutor-subjects">Subjects Taught: Physics, Math, Chemistry</p>
+                        <a href="#" class="btn btn-primary tutor-link">View Profile</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <div class="tutor-profile panel panel-default">
+                    <div class="panel-body text-center">
+                        <img src="/static/pic/Tutor_Pic/5.jpg" class="img-responsive img-circle tutor-img" alt="Tutor Name Placeholder">
+                        <h3 class="tutor-name">Mr. Michael Brooks</h3>
+                        <p class="tutor-education">BA History, University of Chicago</p>
+                        <p class="tutor-subjects">Subjects Taught: History, Philosophy, English</p>
+                        <a href="#" class="btn btn-primary tutor-link">View Profile</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <div class="tutor-profile panel panel-default">
+                    <div class="panel-body text-center">
+                        <img src="/static/pic/Tutor_Pic/6.jpg" class="img-responsive img-circle tutor-img" alt="Tutor Name Placeholder">
+                        <h3 class="tutor-name">Ms. Emily Carter</h3>
+                        <p class="tutor-education">MA English Literature, University of Oxford</p>
+                        <p class="tutor-subjects">Subjects Taught: English, Philosophy, History</p>
+                        <a href="#" class="btn btn-primary tutor-link">View Profile</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">About Home Tutoring</a></li>
+                        <li><a href="#">Teams and Careers</a></li>
+                        <li><a href="#">For parents</a></li>
+                        <li><a href="#">Partner with us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact us</h4>
+                    <ul>
+                        <li><a href="#">contact@home-class.com</a></li>
+                        <li><a href="">+44 2032397887</a></li>
+                        <li><a href="">service01@home-class.com</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Apply to be a tutor</h4>
+                    <ul>
+                        <li><a href="#">tutor@home-class.com</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Home Tutoring</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </body>
+</html>

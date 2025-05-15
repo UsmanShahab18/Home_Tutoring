@@ -1,0 +1,315 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: #FFFDD0; /* SCENARIO A: Cream background for a warm, scholarly feel */
+}
+
+header {
+    position: relative;
+    top: 0; left: 0; right: 0;
+    background: #0A2342; /* SCENARIO A: Sophisticated Navy Blue primary background */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow for dark bg */
+    padding: 0px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    height: 100px;
+    overflow: visible;
+}
+
+header .logo {
+    font-weight: bolder;
+    font-size: 25px;
+    /* Assuming .pic is the logo image, text color is for any accompanying text */
+    color: #FFFDD0; /* SCENARIO A: Cream color text/accent on navy background */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+header .logo .pic {
+    height: 80px;
+    width: auto;
+    /* If logo is dark, consider CSS filter: invert(1) brightness(2) for light version on dark bg;
+       or use a separate light version of the logo image. */
+}
+
+header .navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+header .navbar ul li {
+    position: relative;
+    width: auto;
+}
+
+header .navbar ul li a {
+    font-size: 18px;
+    padding: 10px 15px;
+    color: #FFFDD0; /* SCENARIO A: Cream color for links on navy background */
+    display: block;
+    text-decoration: none;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+header .navbar ul li a:hover {
+    background: transparent;
+    color: #B08D57; /* SCENARIO A: Muted Gold for link hover on navy */
+}
+
+header .navbar ul li ul { /* Dropdown menu */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 190px; /* Adjusted width */
+    background: #FFFDD0; /* SCENARIO A: Cream background for dropdown */
+    z-index: 999;
+    display: none;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    border-top: 2px solid #B08D57; /* SCENARIO A: Muted Gold accent for dropdown */
+}
+
+header .navbar ul li ul li {
+    width: 100%;
+    border-top: 1px solid #E8E8E8; /* SCENARIO A: Light Gray separator on cream */
+}
+
+header .navbar ul li ul li:first-child {
+    border-top: none;
+}
+
+header .navbar ul li ul li a {
+    padding: 12px 15px;
+    font-size: 16px;
+    color: #0A2342; /* SCENARIO A: Navy text on cream background for dropdown links */
+}
+
+header .navbar ul li ul li a:hover {
+    background: #E8E8E8; /* SCENARIO A: Light Gray background on hover for dropdown item */
+    color: #B08D57; /* SCENARIO A: Muted Gold text on hover */
+}
+
+header .navbar ul li:focus-within > ul,
+header .navbar ul li:hover > ul {
+    display: block;
+}
+
+#menu-bar { /* Hidden checkbox for mobile menu */
+    display: none;
+    padding-left: 20px;
+}
+
+header label { /* Mobile menu icon (hamburger) */
+    color: #FFFDD0; /* SCENARIO A: Cream color for menu icon on navy header */
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+@media (max-width: 991px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: auto;
+        padding: 15px 7%;
+    }
+
+    header .logo {
+        font-size: 22px;
+    }
+    header .logo .pic {
+        height: 60px;
+    }
+
+    header label {
+        display: block;
+    }
+
+    .navbar { /* Mobile navigation panel */
+        width: 100%;
+        background: #E8E8E8; /* SCENARIO A: Light Gray for mobile dropdown panel */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.4s ease-out, box-shadow 0.4s ease-out;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+    }
+
+    .navbar ul li {
+        width: 100%;
+        padding: 0;
+        position: static;
+        border-bottom: 1px solid #D3D3D3; /* SCENARIO A: Slightly darker Gray separator on light gray */
+    }
+    header .navbar ul li:last-child {
+        border-bottom: none;
+    }
+
+    .navbar ul li a {
+        color: #0A2342; /* SCENARIO A: Navy text on light gray background */
+        padding: 15px 20px;
+        display: block;
+    }
+    .navbar ul li a:hover {
+        background: #D3D3D3; /* SCENARIO A: Darker Gray for hover in mobile nav */
+        color: #B08D57; /* SCENARIO A: Muted Gold text on hover */
+    }
+
+    header .navbar ul li ul { /* Mobile sub-menu */
+        position: static;
+        width: 100%;
+        background: #F5F5F5; /* SCENARIO A: Even lighter gray/off-white for sub-menu to differentiate */
+        box-shadow: none;
+        padding-left: 0;
+        display: none;
+        border-top: 1px solid #D3D3D3;
+    }
+     header .navbar ul li:hover > ul {
+        display: block;
+    }
+
+    header .navbar ul li ul li {
+        border-top: none;
+        border-bottom: 1px solid #E0E0E0;
+    }
+     header .navbar ul li ul li:last-child {
+        border-bottom: none;
+    }
+
+    header .navbar ul li ul li a {
+        padding: 12px 30px;
+        font-size: 15px;
+        color: #0A2342; /* SCENARIO A: Navy text */
+    }
+    header .navbar ul li ul li a:hover {
+        background: #DCDCDC;
+        color: #B08D57; /* SCENARIO A: Muted Gold text */
+    }
+
+    #menu-bar:checked ~ .navbar {
+        max-height: 100vh;
+    }
+}
+
+.container{
+    max-width: 1170px;
+    margin: auto;
+}
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    line-height: 1.5;
+}
+
+ul{
+    list-style: none;
+}
+
+.footer{
+    background-color: #0A2342; /* SCENARIO A: Sophisticated Navy Blue primary for footer */
+    padding: 70px 0;
+    color: #E8E8E8; /* SCENARIO A: Default text color Light Gray on navy */
+}
+
+.footer-col{
+    width: 25%;
+    padding: 0 15px;
+}
+
+.footer-col h4{
+    font-size: 18px;
+    color: #FFFDD0; /* SCENARIO A: Cream heading on navy background */
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+}
+
+.footer-col h4::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #B08D57; /* SCENARIO A: Muted Gold accent */
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+}
+
+.footer-col ul li:not(:last-child){
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a{
+    font-size: 16px;
+    text-transform: capitalize;
+    text-decoration: none;
+    font-weight: 300;
+    color: #E8E8E8; /* SCENARIO A: Light Gray for footer links on navy */
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover{
+    color: #B08D57; /* SCENARIO A: Muted Gold for footer link hover */
+    padding-left: 8px;
+}
+
+.footer-col .social-links a{
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(232, 232, 232, 0.2); /* SCENARIO A: Transparent light gray on navy */
+    margin:0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #FFFDD0; /* SCENARIO A: Cream icon color */
+    transition: all 0.5s ease;
+}
+
+.footer-col .social-links a:hover{
+    color: #0A2342; /* SCENARIO A: Navy icon on gold background */
+    background-color: #B08D57; /* SCENARIO A: Muted Gold background for social icon hover */
+}
+
+/* Responsive Footer Adjustments */
+@media (max-width: 767px) {
+    .footer .row {
+        flex-direction: column;
+    }
+    .footer-col {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+    .footer-col {
+        width: 50%;
+        margin-bottom: 30px;
+    }
+}

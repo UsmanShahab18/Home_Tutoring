@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="website icon" type="image/png" href="/static/pic/4ed71003-870f-4434-bf0b-132654eeb671-removebg-preview.png">
+    <link rel="stylesheet" href="/static/css/header-footer.css">
+    <link rel="stylesheet" href="/static/css/founder.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Roboto:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Founder - Home Tutoring</title>
+</head>
+<body>
+    
+   <header>
+        <a href="#" class="logo"><img src="/static/pic/4ed71003-870f-4434-bf0b-132654eeb671-removebg-preview.png" class="pic" alt="Home Tutoring Logo"></a>
+        <input type="checkbox" id="menu-bar">
+        <label for="menu-bar" class="menu">Menu</label>
+        <nav class="navbar">
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('OurTutors') }}">OurTutors</a></li>
+                <li><a href="#">More <i class="fas fa-caret-down icon"></i></a>
+                    <ul>
+                        <li><a href="{{ url_for('aboutus') }}">About us</a></li>
+                        <li><a href="{{ url_for('founder') }}">Founder</a></li>
+                        <li><a href="{{ url_for('FAQs') }}">FAQs</a></li>
+                    </ul>
+                </li>
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="founder-page-content">
+        <section class="founder-hero">
+            <div class="container">
+                <h1>Meet Our Founder</h1>
+                <p class="founder-title">Alex Chen (Placeholder Name) - CEO & Visionary</p>
+            </div>
+        </section>
+
+        <section class="founder-details-section">
+            <div class="container">
+                <div class="founder-layout">
+                    <div class="founder-image-container">
+                        <img src="/static/pic/images.jpeg" alt="Photo of Alex Chen (Placeholder)" class="founder-photo">
+                         <div class="founder-social-links">
+                            <a href="#" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" aria-label="Twitter Profile"><i class="fab fa-twitter"></i></a>
+                            <a href="mailto:founder@home-class.com" aria-label="Email Alex Chen"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                    <div class="founder-bio">
+                        <h2>A Passion for Transformative Education</h2>
+                        <p>
+                            Driven by a firm belief that every student deserves the opportunity to unlock their full potential, Alex Chen founded Home Tutoring with a singular vision: to make personalized, high-quality education accessible to all. Witnessing the challenges many students faced in traditional learning environments, Alex was inspired to create a platform that not only addresses academic needs but also fosters a genuine love for learning.
+                        </p>
+                        <p>
+                            With a background in educational technology and over a decade of experience working closely with students and educators, Alex brings a unique blend of pedagogical insight and innovative thinking. This journey began with a simple idea – what if learning could be tailored to each individual's pace, style, and curiosity? This question became the cornerstone of Home Tutoring.
+                        </p>
+                        <p>
+                            "Our goal is not just to help students achieve better grades, but to empower them with the confidence and skills to become lifelong learners and critical thinkers," says Alex. "We are committed to creating a supportive and engaging environment where every student can thrive."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="founder-vision-mission content-section alt-bg">
+            <div class="container">
+                <div class="heading-container">
+                    <h2 class="section-heading">Guiding Principles</h2>
+                </div>
+                <div class="principles-grid">
+                    <div class="principle-item">
+                        <div class="principle-icon"><i class="fas fa-lightbulb"></i></div>
+                        <h3>Our Vision</h3>
+                        <p>To create a future where learning is an exciting, transformative journey, empowering every student to discover their unique potential and achieve their dreams, regardless of their background.</p>
+                    </div>
+                    <div class="principle-item">
+                        <div class="principle-icon"><i class="fas fa-bullseye"></i></div>
+                        <h3>Our Mission</h3>
+                        <p>To provide exceptional, personalized tutoring and mentorship that ignites a lifelong love for learning, fosters academic excellence, and equips students with the skills to succeed in a dynamic world.</p>
+                    </div>
+                    <div class="principle-item">
+                        <div class="principle-icon"><i class="fas fa-heart"></i></div>
+                        <h3>Core Values</h3>
+                        <p>Student-Centricity, Excellence in Education, Integrity and Transparency, Innovation in Learning, and Empowerment through Knowledge. These values guide every decision we make.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="founder-impact-section content-section">
+            <div class="container">
+                 <div class="heading-container">
+                    <h2 class="section-heading">A Commitment to Impact</h2>
+                </div>
+                <div class="impact-content">
+                    <div class="impact-text">
+                        <p>Beyond academics, Alex believes in the power of mentorship to shape well-rounded individuals. Home Tutoring is more than a service; it's a community dedicated to fostering growth, resilience, and curiosity.</p>
+                        <p>We are continuously exploring new ways to enhance the learning experience, integrating innovative tools and methodologies to ensure our students are prepared for the challenges and opportunities of tomorrow. Join us on this journey to redefine education, one student at a time.</p>
+                         <a href="aboutus.html" class="cta-link">Learn More About Our Journey <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="impact-icon-showcase">
+                        <i class="fas fa-users"></i>
+                        <i class="fas fa-graduation-cap"></i>
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">About Home Tutoring</a></li>
+                        <li><a href="#">Teams and Careers</a></li>
+                        <li><a href="#">For parents</a></li>
+                        <li><a href="#">Partner with us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact us</h4>
+                    <ul>
+                        <li><a href="#">contact@home-class.com</a></li>
+                        <li><a href="#">+44 2032397887</a></li>
+                        <li><a href="#">service01@home-class.com</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Apply to be a tutor</h4>
+                    <ul>
+                        <li><a href="#">tutor@home-class.com</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Home Tutoring</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/static/JavaScript/header&footer.js"></script>
+    <script src="/static/JavaScript/founder.js"></script> </body>
+</html>
