@@ -1,18 +1,15 @@
-/* General Body Style */
 body {
   font-family: 'Roboto', sans-serif;
-  color: #333; /* Dark grey for better readability - Kept */
+  color: #333;
   margin: 0;
   padding: 0;
-  background-color: #FAF9F6; /* SCENARIO A: Changed to a Serene Cream/Off-white */
-  overflow-x: hidden; /* Prevent horizontal scroll issues */
+  background-color: #FAF9F6; 
+  overflow-x: hidden; 
 }
 
-/* Hero Section Styling */
 .hero-section {
-  /* SCENARIO A: Changed to a sophisticated navy blue gradient */
-  background: linear-gradient(135deg, #001f3f 0%, #003366 100%); /* Deep Navy to a slightly lighter, but still dark, navy */
-  color: white; /* Kept for contrast */
+  background: linear-gradient(135deg, #001f3f 0%, #003366 100%); 
+  color: white; 
   padding: 80px 20px;
   text-align: center;
   display: flex;
@@ -41,6 +38,8 @@ body {
   opacity: 0;
   transform: translateY(-20px);
   animation: slideFadeIn 0.8s ease-out 0.3s forwards; /* Staggered animation */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cta-button {

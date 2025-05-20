@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="website icon" type="jpg" href="/static//pic/4ed71003-870f-4434-bf0b-132654eeb671-removebg-preview.png">
-    <link rel="stylesheet" href="/static/css/header-footer.css">
-    <script src="/static/JavaScript/header&footer.js"></script>
-    <link rel="stylesheet" href="/static/css/aboutus.css">
+    <link rel="website icon" type="jpg" href="{{ url_for('static', filename='pic/4ed71003-870f-4434-bf0b-132654eeb671-removebg-preview.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/header-footer.css') }}">
+    <script src="{{ url_for('static', filename='JavaScript/header&footer.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/aboutus.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Manrope&family=Noto+Nastaliq+Urdu&family=Pacifico&family=Roboto&family=Tilt+Prism&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Tutoring</title>
+    <title>Home Tutoring - About Us</title> {# Updated title #}
 </head>
 <body>
     <header>
-        <a href="#" class="logo"><img src="/static/pic/4ed71003-870f-4434-bf0b-132654eeb671-removebg-preview.png" class="pic" alt="Home Tutoring Logo"></a>
+        <a href="{{ url_for('index') }}" class="logo"><img src="{{ url_for('static', filename='pic/4ed71003-870f-4434-bf0b-132654eeb671-removebg-preview.png') }}" class="pic" alt="Home Tutoring Logo"></a>
         <input type="checkbox" id="menu-bar">
         <label for="menu-bar" class="menu">Menu</label>
         <nav class="navbar">
@@ -34,7 +34,7 @@
     </header>
 
     <br><br><br>
-    
+
     <div class="box">
         <div class="boxstyle">
             <div class="icon"><i class="fa-solid fa-eye"></i></div>
@@ -47,6 +47,7 @@
             <p>Our mission is to provide exceptional tutoring and guidance that caters to the diverse needs of every student we serve. We are committed to fostering a supportive learning environment where students can excel academically, build confidence, and develop essential skills. Our team of dedicated educators is passionate about tailoring our approach to each student's unique learning style, helping them reach their academic and personal goals.</p>
         </div>
     </div>
+
     <div class="about">
         <h2>Our Beliefs</h2><br>
         <p>At Home Tutoring.com, we believe that every student deserves a personal tutor, and we are dedicated to promoting equity, opportunity, and achievement for all learners. To that end, we partner with colleges and universities, K–12 schools and districts, public and state libraries, employee benefits programs, 1-to-1 tutoring and homework help in more than 250 subjects.</p>
@@ -55,40 +56,68 @@
         <p>In 1998, a small group of passionate education and tech professionals had a terrific URL and a big idea—use the Internet to connect students to tutors whenever and wherever they needed help. So, they recruited about a hundred tutors and created one of the first online, interactive classrooms.</p><br>
         <p>In 2000, Home Tutoring.com, Inc. was incorporated and began partnering with institutions to ensure that students from all socioeconomic backgrounds would have access to highly effective 1-to-1 tutoring and homework help, day or night, from any Internet-enabled device.</p><br>
         <p>In 2014, Home Tutoring.com acquired The Princeton Review®, a world leader in education services, and added The Princeton Review test preparation services to its online tutoring platform and offerings.</p><br>
-        <br><br>
+
+        {# Added More Content Below #}
+        <h2>Our Values</h2><br>
+        <p>Our work is guided by a set of core values that define who we are and how we operate. These values include:</p>
+        <ul>
+            <li>**Excellence:** We are committed to providing the highest quality tutoring and support services.</li>
+            <li>**Equity:** We believe in equal access to educational opportunities for all students.</li>
+            <li>**Innovation:** We continuously seek new and better ways to enhance the learning experience.</li>
+            <li>**Integrity:** We operate with honesty, transparency, and ethical conduct in all our interactions.</li>
+            <li>**Collaboration:** We work closely with students, parents, educators, and institutions to achieve shared goals.</li>
+            <li>**Passion:** We are passionate about education and dedicated to helping students succeed.</li>
+        </ul>
+        <br>
+
+        <h2>Our Team</h2><br>
+        <p>Our team of tutors and educators is the heart of Home Tutoring.com. Each tutor is carefully selected, not only for their subject matter expertise but also for their ability to connect with students and inspire a love for learning. Our tutors come from diverse backgrounds and bring a wealth of experience to the online classroom. They are passionate about teaching and are committed to providing personalized support to help each student reach their full potential.</p>
+        <br>
+        <p>We invest in ongoing professional development for our tutors to ensure they are equipped with the latest teaching strategies and technologies. This commitment to excellence in our team translates directly into a better learning experience for our students.</p>
+        <br>
+
+        <h2>Partner With Us</h2><br>
+        <p>We collaborate with educational institutions, libraries, corporations, and government programs to extend the reach of high-quality tutoring. Partnering with Home Tutoring.com allows organizations to provide their students, patrons, or employees with on-demand access to expert academic support, helping them achieve their educational and professional goals. If you are interested in partnering with us, please visit our contact page or reach out to our partnerships team.</p>
+        <br>
+
+        <h2>Join Our Team</h2><br>
+        <p>Are you a passionate educator looking to make a difference? We are always looking for talented and dedicated individuals to join our team of tutors. If you have expertise in a subject area and are committed to helping students succeed, we encourage you to learn more about becoming a tutor with Home Tutoring.com. Visit our "Apply to be a Tutor" section for more information on the application process and requirements.</p>
+        <br>
+
     </div>
+
     <footer class="footer">
         <div class="container">
             <div class="row">
                 <div class="footer-col">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#">About Home Tutoring</a></li>
-                        <li><a href="#">Teams and Careers</a></li>
-                        <li><a href="#">For parents</a></li>
-                        <li><a href="#">Partner with us</a></li>
+                        <li><a href="{{ url_for('aboutus') }}">About Home Tutoring</a></li> {# Corrected url_for #}
+                        <li><a href="#">Teams and Careers</a></li> {# Placeholder link #}
+                        <li><a href="#">For parents</a></li> {# Placeholder link #}
+                        <li><a href="#">Partner with us</a></li> {# Placeholder link #}
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Contact us</h4>
                     <ul>
-                        <li><a href="#">contact@home-class.com</a></li>
-                        <li><a href="">+44 2032397887</a></li>
-                        <li><a href="">service01@home-class.com</a></li>
+                        <li><a href="#">contact@home-class.com</a></li> {# Placeholder link #}
+                        <li><a href="#">+44 2032397887</a></li> {# Placeholder link #}
+                        <li><a href="#">service01@home-class.com</a></li> {# Placeholder link #}
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Apply to be a tutor</h4>
                     <ul>
-                        <li><a href="#">tutor@home-class.com</a></li>
+                        <li><a href="#">tutor@home-class.com</a></li> {# Placeholder link #}
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Home Tutoring</h4>
                     <div class="social-links">
-                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a> {# Placeholder link #}
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a> {# Placeholder link #}
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a> {# Placeholder link #}
                     </div>
                 </div>
             </div>

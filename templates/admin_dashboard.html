@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | User Data</title>
+    {# Link Bootstrap 3 CSS #}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    {# Link Bootstrap 3 Theme CSS (Optional) #}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    {# Link Font Awesome #}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" xintegrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* Add some margin to the top of the container */
+        .container {
+            margin-top: 20px;
+        }
+        /* Style for action buttons column */
+        .action-buttons {
+            white-space: nowrap; /* Prevent buttons from wrapping */
+        }
+        .action-buttons .btn {
+            margin-right: 5px; /* Space between buttons */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary"> {# Using panel-primary for a blue header #}
+                    <div class="panel-heading">
+                        <h3 class="panel-title">All Registered Users</h3>
+                    </div>
+                    <div class="panel-body">
+                        {# Wrap the table in a div with .table-responsive class #}
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Username</th>
+                                        <th>Email</th>
+                                        <th>Full Name</th>
+                                        <th>Contact</th>
+                                        <th>Action</th> {# Column for Edit/Delete buttons #}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% if users %} {# Check if the 'users' list is not empty #}
+                                        {% for user in users %} {# Loop through each user in the list #}
+                                        <tr>
+                                            <td>{{ user.id }}</td>
+                                            <td>{{ user.username }}</td>
+                                            <td>{{ user.email }}</td>
+                                            <td>{{ user.full_name if user.full_name else 'N/A' }}</td> {# Display Full Name or 'N/A' if null #}
+                                            <td>{{ user.contact if user.contact else 'N/A' }}</td>  {# Display Contact or 'N/A' if null #}
+                                            <td class="action-buttons">
+                                                {# Edit Button (Placeholder) #}
+                                                <a href="{{ url_for('edit_user', user_id=user.id) }}" class="btn btn-primary btn-xs">
+                                                    <i class="fas fa-edit"></i> Edit
+                                                </a>
+                                                {# Delete Button (Placeholder - using a form for proper DELETE request) #}
+                                                <form action="{{ url_for('delete_user', user_id=user.id) }}" method="POST" style="display: inline;">
+                                                    <button type="submit" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure you want to delete this user?');">
+                                                         <i class="fas fa-trash-alt"></i> Delete
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    {% else %} {# If no users are found #}
+                                        <tr>
+                                            {# Adjusted colspan to 6 (ID, Username, Email, Full Name, Contact, Action) #}
+                                            <td colspan="6">No users found in the database.</td>
+                                        </tr>
+                                    {% endif %}
+                                </tbody>
+                            </table>
+                        </div> {# Close .table-responsive div #}
+                    </div>
+                    <div class="panel-footer">
+                        <p>
+                            {# Logout button for Admin #}
+                            <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {# Link jQuery (Bootstrap JS dependency) and Bootstrap 3 JS #}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkFuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</body>
+</html>

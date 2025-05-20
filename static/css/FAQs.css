@@ -1,35 +1,63 @@
+/* General body styles - assuming a light background for the main content area */
+/* This should ideally be set in a global CSS file or on the body in the HTML template */
+/* If you have a global CSS, you might remove this body rule from here */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    /* Setting a light background color for the body, consistent with other pages */
+    background-color: #f8f8f8; /* A very light grey, similar to the screenshot's background */
+    color: #333; /* Default text color */
+}
+
+/* Styles for the main wrapper containing the FAQs */
 .wrapper {
     padding-top: 20px;
     max-width: 75%;
     margin: auto;
     margin-top: 20px;
     margin-bottom: 20px;
+    /* Optional: Add a light background and shadow to the wrapper */
+    background-color: #ffffff; /* White background for the wrapper */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
+    padding: 20px; /* Add padding inside the wrapper */
 }
 
 .wrapper > h1 {
     margin: 1.5rem 0;
     text-align: center;
     letter-spacing: 2px;
+    /* Color for the main heading */
+    color: #1a2a4b; /* Dark blue color */
 }
 
 .wrapper h2 {
     margin: 1.5rem 0;
+    /* Color for subheadings */
+    color: #333; /* Default text color */
 }
 
+/* Styles for individual FAQ items */
 .faq {
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Lighter border */
     margin: 10px 0;
     border-radius: 5px;
+    overflow: hidden; /* Ensure border-radius works with content */
 }
 
 .faq.active {
-    border: none;
+    border: none; /* Remove border when active */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* Styles for the accordion button (FAQ question) */
 .faq .accordion {
-    background: rgba(143, 211, 244, 0.1);
-    color: rgba(0, 0, 0, 0.8);
+    /* Using a light background color from the gradient range */
+    background-color: rgba(166, 193, 238, 0.3); /* Light blue with some transparency */
+    color: #333; /* Text color */
     cursor: pointer;
     font-size: 1.2rem;
     width: 100%;
@@ -41,20 +69,27 @@
     justify-content: space-between;
     align-items: center;
     font-weight: bold;
+    text-align: left; /* Align text to the left */
 }
 
 .accordion i {
     font-size: 1.6rem;
+    /* Color for the icons */
+    color: #1a2a4b; /* Dark blue color */
 }
 
-.active,
+/* Styles for active or hovered accordion button */
+.active .accordion, /* Apply active styles to the accordion button within the active faq */
 .accordion:hover {
-    background: rgba(132, 250, 176, 0.1);
+    /* Using another light background color from the gradient range */
+    background-color: rgba(251, 194, 235, 0.3); /* Light pink with some transparency */
 }
 
+/* Styles for the panel (FAQ answer) */
 .pannel {
     padding: 0 2rem;
-    background: rgba(132, 250, 176, 0.1);
+     /* Using a light background color for the panel */
+    background-color: #f8f8f8; /* Light grey background */
     overflow: hidden;
     text-align: justify;
     max-height: 0;
@@ -62,32 +97,67 @@
 }
 
 .faq.active .pannel {
-    max-height: 1000px;
-    background: rgba(143, 211, 244, 0.1);
+    max-height: 1000px; /* Adjust as needed for content height */
+    /* Using a slightly different light background when active */
+    background-color: #ffffff; /* White background when active */
     padding-bottom: 2.5rem;
+    padding-top: 1.5rem; /* Add padding to the top when expanded */
 }
 
 .pannel p {
-    color: rgba(0, 0, 0, 0.7);
-    font-size: 1.2rem;
-    line-height: 1.4;
+    color: #555; /* Slightly darker text for readability */
+    font-size: 1.1rem; /* Slightly smaller font size */
+    line-height: 1.5; /* Improve readability */
     margin: 0;
 }
 
-/* Add any specific mobile styles for the FAQs page here if needed */
-/* Example:
+header {
+    width: 100%;
+}
+
+footer { 
+    width: 100%;
+}
+
+/* Responsive adjustments */
 @media (max-width: 991px) {
     .wrapper {
-        width: 95%;
+        max-width: 95%;
+        padding: 15px;
     }
     .faq .accordion {
         padding: 1rem 1.5rem;
+        font-size: 1.1rem;
     }
     .pannel {
         padding: 0 1.5rem;
     }
     .faq.active .pannel {
         padding-bottom: 1.5rem;
+        padding-top: 1rem;
+    }
+    .pannel p {
+        font-size: 1rem;
     }
 }
-*/
+
+@media (max-width: 480px) {
+    .wrapper {
+        max-width: 100%;
+        padding: 10px;
+    }
+    .faq .accordion {
+        padding: 0.8rem 1rem;
+        font-size: 1rem;
+    }
+    .pannel {
+        padding: 0 1rem;
+    }
+    .faq.active .pannel {
+        padding-bottom: 1rem;
+        padding-top: 0.8rem;
+    }
+    .pannel p {
+        font-size: 0.9rem;
+    }
+}

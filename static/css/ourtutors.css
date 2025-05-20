@@ -1,58 +1,75 @@
 
 body {
-    min-height: 100vh; 
-    display: block;
+    min-height: 100vh;
+    display: block; 
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
 }
+
 
 .main-content {
     padding: 30px 15px;
+    background-color: #f8f8f8; 
 }
 
-.sub_container{
+
+.sub_container {
     display: flex;
     flex-wrap: wrap;
-}
+    justify-content: center; 
+    gap: 20px; 
 
-.page-title {
-    margin-top: 0;
-    margin-bottom: 40px;
-    color: #333; 
-    text-align: center;
+    align-items: stretch;
 }
 
 .tutor-profile {
-    margin-bottom: 30px; 
-    border-radius: 8px; 
-    border-color: #ddd; 
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+    margin-bottom: 30px;
+    border-radius: 8px;
+    border: 1px solid #ddd; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: #ffffff; 
+    width: 300px; 
+    display: flex; 
+    flex-direction: column;
+    overflow: hidden; 
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-height: 350px; 
 }
 
 .tutor-profile .panel-body {
-    padding: 20px; 
+    padding: 20px;
+    text-align: center; 
+    flex-grow: 1;
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between; 
+    align-items: center; 
 }
 
 
-
 .tutor-img {
-    width: 150px; 
-    height: 150px; 
+    width: 150px;
+    height: 150px;
     object-fit: cover;
-    margin: 0 auto 15px auto; 
-    border: 3px solid #0fa6cf; 
+    margin: 0 auto 15px auto;
+    border: 3px solid #1a2a4b; 
+    border-radius: 50%;
     transition: transform 0.3s ease-in-out;
 }
 
 .tutor-img:hover {
-    transform: scale(1.05); 
+    transform: scale(1.05);
 }
 
 .tutor-name {
     margin-top: 0;
-    margin-bottom: 5px; 
-    color: #0fa6cf; 
-    font-size: 1.5em; 
+    margin-bottom: 5px;
+    color: #1a2a4b; 
+    font-size: 1.5em;
+    font-weight: bold; 
 }
-
 
 .tutor-education {
     margin-top: 0;
@@ -61,28 +78,71 @@ body {
     font-size: 1.1em;
 }
 
-
 .tutor-subjects {
     margin-top: 0;
-    margin-bottom: 15px; 
+    margin-bottom: 15px;
     color: #555;
     font-size: 1em;
 }
 
-
 .tutor-link {
-    margin-top: 10px;
+    margin-top: auto; 
+    
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #a6c1ee;
+    color: #1a2a4b; 
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
 
 @media (max-width: 991px) {
     body {
-        padding-top: 0; 
+        padding-top: 0;
+    }
+
+    .sub_container {
+        gap: 15px;
+    }
+
+    .tutor-profile {
+        width: 45%;
+        margin-bottom: 20px;
+        min-height: 300px; 
     }
 
     .tutor-img {
-        width: 120px;
-        height: 120px;
+        width: 100px; 
+        height: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .tutor-profile {
+        width: 80%; 
+        min-height: 280px; 
+    }
+}
+
+@media (max-width: 480px) {
+    .tutor-profile {
+        width: 95%; 
+        min-height: 250px; 
     }
 
+    .tutor-img {
+        width: 80px; 
+        height: 80px;
+    }
+
+    .tutor-name {
+        font-size: 1.3em; 
+    }
+
+    .tutor-education,
+    .tutor-subjects {
+        font-size: 0.9em; 
+    }
 }

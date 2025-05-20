@@ -29,7 +29,13 @@
                         <li><a href="{{ url_for('FAQs') }}">FAQs</a></li>
                     </ul>
                 </li>
-                <li><a href="{{ url_for('login') }}">Login</a></li>
+                {% if loggedin %} {# Check if user is logged in #}
+                {# The 'Profile' link to user_data_page has been removed #}
+                <li><a href="{{ url_for('logout') }}">Logout</a></li> {# Link to logout #}
+                {% else %}
+                <li><a href="{{ url_for('login') }}">Login</a></li> {# Link to login #}
+                <li><a href="{{ url_for('signup') }}">Register</a></li> {# Link to signup #}
+                {% endif %}
             </ul>
         </nav>
     </header>

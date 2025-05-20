@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -10,7 +10,7 @@ body{
 }
 
 header {
-    position: relative;
+    position: relative; /* Keep header relative */
     top: 0; left: 0; right: 0;
     background: #0A2342; /* SCENARIO A: Sophisticated Navy Blue primary background */
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow for dark bg */
@@ -20,13 +20,12 @@ header {
     justify-content: space-between;
     z-index: 1000;
     height: 100px;
-    overflow: visible;
+    overflow: visible; /* Allow dropdowns to be visible */
 }
 
 header .logo {
     font-weight: bolder;
     font-size: 25px;
-    /* Assuming .pic is the logo image, text color is for any accompanying text */
     color: #FFFDD0; /* SCENARIO A: Cream color text/accent on navy background */
     display: flex;
     align-items: center;
@@ -36,8 +35,6 @@ header .logo {
 header .logo .pic {
     height: 80px;
     width: auto;
-    /* If logo is dark, consider CSS filter: invert(1) brightness(2) for light version on dark bg;
-       or use a separate light version of the logo image. */
 }
 
 header .navbar ul {
@@ -68,7 +65,7 @@ header .navbar ul li a:hover {
     color: #B08D57; /* SCENARIO A: Muted Gold for link hover on navy */
 }
 
-header .navbar ul li ul { /* Dropdown menu */
+header .navbar ul li ul { /* Dropdown menu (Desktop) */
     position: absolute;
     top: 100%;
     left: 0;
@@ -122,8 +119,9 @@ header label { /* Mobile menu icon (hamburger) */
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        height: auto;
+        height: auto; /* Allow header height to adjust */
         padding: 15px 7%;
+        flex-wrap: wrap; /* Allow items to wrap if needed */
     }
 
     header .logo {
@@ -139,17 +137,26 @@ header label { /* Mobile menu icon (hamburger) */
 
     .navbar { /* Mobile navigation panel */
         width: 100%;
-        background: #E8E8E8; /* SCENARIO A: Light Gray for mobile dropdown panel */
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
+        background: linear-gradient(135deg, #002952 0%, #00478d 100%);
+        /* Changed positioning for mobile to be in normal flow */
+        position: static;
+        top: auto;
+        left: auto;
+        right: auto;
         z-index: 1;
         overflow: hidden;
-        max-height: 0;
-        transition: max-height 0.4s ease-out, box-shadow 0.4s ease-out;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        max-height: 0; /* Initially hidden */
+        transition: max-height 0.4s ease-out; /* Transition max-height for smooth open/close */
+        /* Removed box-shadow transition here as it's less impactful during height transition */
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1); /* Keep shadow when closed */
     }
+
+    /* When menu is checked, show it by setting a max-height */
+    #menu-bar:checked ~ .navbar {
+        max-height: 500px; /* Set a generous max-height to accommodate all menu items */
+        /* Adjust this value if your menu content is taller */
+    }
+
 
     .navbar ul {
         flex-direction: column;
@@ -160,31 +167,31 @@ header label { /* Mobile menu icon (hamburger) */
     .navbar ul li {
         width: 100%;
         padding: 0;
-        position: static;
-        border-bottom: 1px solid #D3D3D3; /* SCENARIO A: Slightly darker Gray separator on light gray */
+        position: static; /* Keep list items static in mobile flow */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Lighter separator for dark background */
     }
     header .navbar ul li:last-child {
         border-bottom: none;
     }
 
     .navbar ul li a {
-        color: #0A2342; /* SCENARIO A: Navy text on light gray background */
+        color: #FFFDD0; /* Cream color for links on the dark gradient */
         padding: 15px 20px;
         display: block;
     }
     .navbar ul li a:hover {
-        background: #D3D3D3; /* SCENARIO A: Darker Gray for hover in mobile nav */
-        color: #B08D57; /* SCENARIO A: Muted Gold text on hover */
+        background: rgba(255, 255, 255, 0.1); /* Slight transparent white background on hover */
+        color: #B08D57; /* Muted Gold for hover text */
     }
 
     header .navbar ul li ul { /* Mobile sub-menu */
-        position: static;
+        position: static; /* Keep sub-menu static in mobile flow */
         width: 100%;
-        background: #F5F5F5; /* SCENARIO A: Even lighter gray/off-white for sub-menu to differentiate */
+        background: rgba(0, 0, 0, 0.1); /* Slightly darker transparent background for sub-menu */
         box-shadow: none;
         padding-left: 0;
         display: none;
-        border-top: 1px solid #D3D3D3;
+        border-top: 1px solid rgba(255, 255, 255, 0.15); /* Lighter separator */
     }
      header .navbar ul li:hover > ul {
         display: block;
@@ -192,25 +199,26 @@ header label { /* Mobile menu icon (hamburger) */
 
     header .navbar ul li ul li {
         border-top: none;
-        border-bottom: 1px solid #E0E0E0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Lighter separator */
     }
      header .navbar ul li ul li:last-child {
         border-bottom: none;
     }
 
     header .navbar ul li ul li a {
+        color: #FFFDD0; /* Cream color for sub-menu links */
         padding: 12px 30px;
         font-size: 15px;
-        color: #0A2342; /* SCENARIO A: Navy text */
     }
     header .navbar ul li ul li a:hover {
-        background: #DCDCDC;
-        color: #B08D57; /* SCENARIO A: Muted Gold text */
+        background: rgba(255, 255, 255, 0.15); /* Slightly darker transparent background on hover */
+        color: #B08D57; /* Muted Gold for hover text */
     }
 
-    #menu-bar:checked ~ .navbar {
+    /* The max-height transition is now controlled by #menu-bar:checked ~ .navbar */
+    /* #menu-bar:checked ~ .navbar {
         max-height: 100vh;
-    }
+    } */
 }
 
 .container{

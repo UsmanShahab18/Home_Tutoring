@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit User | Admin Dashboard</title>
+    {# Link Bootstrap 3 CSS #}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    {# Link Bootstrap 3 Theme CSS (Optional) #}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    {# Link Font Awesome #}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" xintegrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* Add some margin to the top of the container */
+        .container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2"> {# Center the form column #}
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Edit User (ID: {{ user.id }})</h3>
+                    </div>
+                    <div class="panel-body">
+                        {# Form to update user details. You will need to create a Flask route to handle this POST request. #}
+                        <form action="{{ url_for('update_user', user_id=user.id) }}" method="POST">
+                            {% if msg %} {# Display messages if any #}
+                                <div class="alert alert-info">{{ msg }}</div>
+                            {% endif %}
+
+                            {# Display non-editable fields if needed, or just show editable ones #}
+                            <div class="form-group">
+                                <label for="username">Username:</label>
+                                {# Username might not be editable, display as static text #}
+                                <p class="form-control-static">{{ user.username }}</p>
+                                {# Or if editable: #}
+                                {# <input type="text" class="form-control" id="username" name="username" value="{{ user.username }}" required> #}
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" class="form-control" id="email" name="email" value="{{ user.email }}" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="full_name">Full Name:</label>
+                                <input type="text" class="form-control" id="full_name" name="full_name" value="{{ user.full_name if user.full_name else '' }}">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contact">Contact:</label>
+                                <input type="tel" class="form-control" id="contact" name="contact" value="{{ user.contact if user.contact else '' }}">
+                            </div>
+
+                            {# Include fields for academic_level and subjects_of_interest if they exist in your database #}
+                            {# Even if not shown in the admin dashboard table, you might want to allow editing here #}
+                            {% if user.academic_level is defined %}
+                            <div class="form-group">
+                                <label for="academic_level">Academic Level:</label>
+                                <input type="text" class="form-control" id="academic_level" name="academic_level" value="{{ user.academic_level if user.academic_level else '' }}">
+                            </div>
+                            {% endif %}
+
+                            {% if user.subjects_of_interest is defined %}
+                            <div class="form-group">
+                                <label for="subjects_of_interest">Subjects of Interest:</label>
+                                <input type="text" class="form-control" id="subjects_of_interest" name="subjects_of_interest" value="{{ user.subjects_of_interest if user.subjects_of_interest else '' }}">
+                            </div>
+                            {% endif %}
+
+
+                            {# You might also want to allow changing the password (requires handling hashing on update) #}
+                            {# <div class="form-group">
+                                <label for="password">New Password:</label>
+                                <input type="password" class="form-control" id="password" name="password">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm_password">Confirm New Password:</label>
+                                <input type="password" class="form-control" id="confirm_password" name="confirm_password">
+                            </div> #}
+
+
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                            {# Link back to the admin dashboard #}
+                            <a href="{{ url_for('admin_dashboard') }}" class="btn btn-default">Cancel</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {# Link jQuery (Bootstrap JS dependency) and Bootstrap 3 JS #}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkFuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</body>
+</html>

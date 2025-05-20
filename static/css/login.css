@@ -3,134 +3,165 @@
     padding: 0;
     box-sizing: border-box;
 }
-body{
+
+body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    /* background-image: url(../pic/2.jpg); */
     background-image: linear-gradient(to top, #fbc2eb 10%, #a6c1ee 100%);
     color: black;
     font-family: 'Roboto', sans-serif;
+    padding: 20px 0;
 }
-.form{
-    width: 25%;
+
+.form-container {
+    width: 100%;
     background: transparent;
     color: #000000;
+    padding: 30px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
 }
-h1{
+
+.form-container h1 {
     font-size: 36px;
     text-align: center;
+    margin-bottom: 30px;
+    color: #000000;
 }
-.box{
+
+.form-group.box {
+    position: relative;
     width: 100%;
     height: 50px;
     background: transparent;
     margin: 30px 0;
-    border: 2px solid rgba(83, 81, 81, 0.2); 
+    border: 2px solid rgba(83, 81, 81, 0.2);
     border-radius: 40px;
     padding-left: 10px;
+    margin-bottom: 30px;
 }
-.icon{
+
+.form-group.box .icon {
     position: absolute;
-    padding: 1%;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
     font-size: large;
+    color: #000000;
+    z-index: 2;
+    padding: 0;
 }
-.box input{
-    width: 80%;
+
+.form-group.box .form-control {
+    width: calc(100% - 45px);
     height: 100%;
     background: transparent;
     border: none;
     outline: none;
     font-size: 15px;
     color: rgb(1, 1, 1);
-    padding-left: 20%;
+    padding-left: 35px;
+    padding-right: 10px;
+    box-shadow: none;
 }
-.box input::placeholder{
+
+.form-group.box .form-control::placeholder {
     color: #000000;
     text-align: start;
 }
-.remember{
+
+.alert {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.remember {
     display: flex;
     justify-content: space-between;
     margin: -15px 0 15px;
     font-size: 16px;
+    align-items: center;
 }
-/* this a is used for both forget or register */
-a{
+
+a {
     color: #000000;
     text-decoration: none;
 }
-a:hover{
+
+a:hover {
     text-decoration: underline;
 }
-.button{
+
+.button {
     width: 100%;
     height: 40px;
+    margin-top: 25px;
 }
-.button input{
+
+.button .btn-block {
     width: 100%;
     height: 100%;
     background: white;
-    border: none;  
+    border: none;
     outline: none;
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 40px;
     cursor: pointer;
+    color: #000000;
+    font-size: 16px;
+    padding: 0;
 }
-.register{
+
+.register {
     display: flex;
     justify-content: space-between;
-    margin: 4%;
-    font-size: 16px
+    margin: 4% 0;
+    font-size: 16px;
+    text-align: center;
+    width: 100%;
+}
+
+.register span {
+    margin-right: 5px;
+}
+
+.admin-login-form {
+    border-top: 1px solid #eee;
+    padding-top: 30px;
+    margin-top: 30px;
 }
 
 @media (max-width: 1020px) {
-    body{
+    body {
         font-size: 16px;
     }
 
-    .form{
-        width: 40%;
-    }
-
-    .icon{
-        position: absolute;
-        padding: 1%;
+    .form-group.box .icon {
         padding-top: 0.7rem;
-        font-size: large;
     }
 }
+
 @media (max-width: 768px) {
     body {
         font-size: 14px;
     }
 
-    .form {
-        width: 45%;
-    }
-
-    .icon{
-        position: absolute;
-        padding: 1%;
+    .form-group.box .icon {
         padding-top: 0.8rem;
-        font-size: large;
     }
 }
+
 @media (max-width: 480px) {
     body {
         font-size: 12px;
     }
 
-    .form {
-        width: 80%;
-    }
-
-    .icon{
-        position: absolute;
-        padding: 1%;
+    .form-group.box .icon {
         padding-top: 0.9rem;
-        font-size: large;
     }
 }
-

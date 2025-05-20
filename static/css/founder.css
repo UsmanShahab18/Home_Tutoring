@@ -1,34 +1,33 @@
-/* Universal Reset & Box Sizing */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Corrected from box-shadow */
+    box-sizing: border-box;
 }
 
 body {
+    min-height: 100vh;
+    display: block;
     font-family: 'Roboto', sans-serif;
     color: #333;
     line-height: 1.6;
-    background-color: #fdfdff;
+    background-color: #f8f8f8;
 }
 
-/* Reusable Container */
 .container {
     width: 90%;
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0 15px; /* Add some horizontal padding to the container itself */
+    padding: 0 15px;
 }
 
-/* Page Specific Content Wrapper */
+
 .founder-page-content {
-    padding-top: 2rem; /* Remove <br> tags and use padding */
     padding-bottom: 2rem;
 }
 
-/* Founder Hero Section */
+
 .founder-hero {
-    background: linear-gradient(135deg, rgb(190, 17, 69) 0%, rgb(128, 12, 47) 100%);
+    background: linear-gradient(135deg, #001f3f 0%, #003366 100%);
     color: #fff;
     padding: 50px 0;
     text-align: center;
@@ -36,7 +35,7 @@ body {
 }
 
 .founder-hero h1 {
-    font-family: 'Playfair Display', serif; /* A more elegant font for the main title */
+    font-family: 'Playfair Display', serif;
     font-size: 2.8rem;
     margin-bottom: 10px;
 }
@@ -48,31 +47,31 @@ body {
     opacity: 0.9;
 }
 
-/* Founder Details Section */
+
 .founder-details-section {
     padding: 40px 0;
 }
 
 .founder-layout {
     display: flex;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    flex-wrap: wrap;
     gap: 40px;
-    align-items: flex-start; /* Align items to the start */
+    align-items: flex-start;
 }
 
 .founder-image-container {
-    flex: 0 0 300px; /* Fixed width for image container, adjust as needed */
+    flex: 0 0 300px;
     text-align: center;
-    opacity: 0; /* For animation */
-    transform: translateX(-20px); /* For animation */
+    opacity: 0;
+    transform: translateX(-20px);
 }
 
 .founder-photo {
     width: 100%;
-    max-width: 280px; /* Max width for the image */
+    max-width: 280px;
     height: auto;
-    border-radius: 50%; /* Circular image */
-    border: 5px solid #fff;
+    border-radius: 10%;
+    border: 5px solid #1a2a4b;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     margin-bottom: 20px;
 }
@@ -82,41 +81,40 @@ body {
 }
 
 .founder-social-links a {
-    color: rgb(190, 17, 69);
+    color: #1a2a4b;
     font-size: 1.5rem;
     margin: 0 10px;
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .founder-social-links a:hover {
-    color: rgb(100, 8, 35);
+    color: #0f1a30;
     transform: scale(1.1);
 }
 
 .founder-bio {
-    flex: 1; /* Takes remaining space */
-    min-width: 300px; /* Ensures bio has enough space before wrapping */
-    opacity: 0; /* For animation */
-    transform: translateX(20px); /* For animation */
+    flex: 1;
+    min-width: 300px;
+    opacity: 0;
+    transform: translateX(20px);
 }
 
 .founder-bio h2 {
     font-family: 'Manrope', sans-serif;
     font-weight: 700;
     font-size: 1.8rem;
-    color: rgb(190, 17, 69);
+    color: #1a2a4b;
     margin-bottom: 20px;
     line-height: 1.3;
 }
 
 .founder-bio p {
-    font-size: 1rem; /* Slightly larger for better readability */
+    font-size: 1rem;
     margin-bottom: 18px;
     text-align: justify;
     color: #555;
 }
 
-/* General Section Styling (can be reused from index.css if made global) */
 .content-section {
     padding: 60px 0;
 }
@@ -130,16 +128,16 @@ body {
     margin-bottom: 40px;
 }
 
-.section-heading { /* Ensure this matches index.css or is global */
-    font-family: "Playfair Display", serif; /* Consistent elegant heading */
-    color: rgb(190, 17, 69);
+.section-heading {
+    font-family: "Playfair Display", serif;
+    color: #1a2a4b;
     font-size: 2.4rem;
     margin: 0;
-    opacity: 0; /* For animation */
-    transform: translateY(20px); /* For animation */
+    opacity: 0;
+    transform: translateY(20px);
 }
 
-/* Guiding Principles (Vision, Mission, Values) */
+
 .principles-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -153,8 +151,8 @@ body {
     text-align: center;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    opacity: 0; /* For animation */
-    transform: translateY(20px); /* For animation */
+    opacity: 0;
+    transform: translateY(20px);
 }
 
 .principle-item:hover {
@@ -164,7 +162,7 @@ body {
 
 .principle-icon {
     font-size: 2.5rem;
-    color: rgb(190, 17, 69);
+    color: #1a2a4b;
     margin-bottom: 15px;
 }
 
@@ -182,7 +180,6 @@ body {
     line-height: 1.6;
 }
 
-/* Commitment to Impact Section */
 .impact-content {
     display: flex;
     flex-wrap: wrap;
@@ -193,8 +190,8 @@ body {
 .impact-text {
     flex: 1;
     min-width: 300px;
-    opacity: 0; /* For animation */
-    transform: translateX(-20px); /* For animation */
+    opacity: 0;
+    transform: translateX(-20px);
 }
 
 .impact-text p {
@@ -207,9 +204,9 @@ body {
     display: inline-block;
     font-family: 'Manrope', sans-serif;
     font-weight: 700;
-    color: rgb(190, 17, 69);
+    color: #1a2a4b;
     text-decoration: none;
-    padding: 10px 0; /* Easier to click */
+    padding: 10px 0;
     transition: color 0.3s ease;
 }
 
@@ -219,7 +216,7 @@ body {
 }
 
 .cta-link:hover {
-    color: rgb(100, 8, 35);
+    color: #0f1a30;
 }
 
 .cta-link:hover i {
@@ -227,31 +224,29 @@ body {
 }
 
 .impact-icon-showcase {
-    flex: 0 0 200px; /* Adjust size as needed */
+    flex: 0 0 200px;
     display: flex;
-    flex-direction: column; /* Stack icons */
+    flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    gap: 20px; /* Space between icons */
-    opacity: 0; /* For animation */
-    transform: translateX(20px); /* For animation */
+    gap: 20px;
+    opacity: 0;
+    transform: translateX(20px);
 }
 
 .impact-icon-showcase i {
     font-size: 2.8rem;
-    color: rgb(190, 17, 69);
+    color: #1a2a4b;
     opacity: 0.7;
 }
 
 
-/* Animation Visibility Class (to be added by JS) */
 .visible {
-    opacity: 1 !important; /* Use important if necessary to override initial opacity */
-    transform: translate(0, 0) !important; /* Reset transforms */
+    opacity: 1 !important;
+    transform: translate(0, 0) !important;
 }
 
 
-/* Responsive Adjustments */
 @media (max-width: 992px) {
     .founder-hero h1 {
         font-size: 2.5rem;
@@ -269,21 +264,21 @@ body {
 
 @media (max-width: 768px) {
     .founder-layout {
-        flex-direction: column; /* Stack image and bio */
-        align-items: center; /* Center items when stacked */
+        flex-direction: column;
+        align-items: center;
         gap: 30px;
     }
     .founder-image-container {
-        flex: 0 0 auto; /* Reset flex basis */
+        flex: 0 0 auto;
         width: 100%;
-        max-width: 250px; /* Control image size */
-        order: -1; /* Move image to top on mobile */
+        max-width: 250px;
+        order: -1;
     }
     .founder-bio {
-        text-align: center; /* Center bio text on mobile */
+        text-align: center;
     }
     .founder-bio p {
-        text-align: left; /* Keep paragraphs left-aligned for readability */
+        text-align: left;
     }
 
     .impact-content {
@@ -291,7 +286,7 @@ body {
         text-align: center;
     }
     .impact-icon-showcase {
-        flex-direction: row; /* Icons side-by-side on mobile if space allows */
+        flex-direction: row;
         justify-content: center;
         margin-top: 20px;
         flex: 1 1 100%;

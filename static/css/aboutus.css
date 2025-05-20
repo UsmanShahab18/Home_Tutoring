@@ -1,87 +1,125 @@
-body{
+/* General body styles - setting a light background for the main content area */
+body {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     font-family: 'Roboto', sans-serif;
-    background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+    /* Setting a light background color for the body */
+    background-color: #f8f8f8; /* A very light grey, similar to the screenshot's background */
+    color: #333; /* Default text color */
 }
 
-header{
+header {
     width: 100%;
 }
 
-.box{
+footer { 
+    width: 100%;
+}
+
+
+/* Styles for the main content boxes */
+.box {
     width: 80%;
-    
-    margin: 0 auto; 
-    margin-bottom: 50px;
+    margin: 50px auto; /* Add margin top and bottom, center horizontally */
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
-    padding-top: 0;
+    padding: 0; /* Adjust padding if needed */
+    /* You could apply the linear gradient here if these boxes should have that background */
+    /* background-image: linear-gradient(120deg, #fbc2eb 0%, #a6c1ee 100%); */
+    /* border-radius: 8px; /* Optional: add rounded corners */
+    /* box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: add a subtle shadow */
 }
 
-.boxstyle{
+.boxstyle {
     width: 45%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items:center;
-    margin: auto;
+    align-items: center;
+    margin: 20px; /* Add margin around each box style item */
     text-align: justify;
     font-size: larger;
+    background-color: #ffffff; /* White background for content boxes */
+    padding: 20px; /* Add padding inside the boxes */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
 }
 
-.box h2{
-    padding-top: 2%;
+.box h2 {
+    padding-top: 0; /* Remove top padding if margin is on the boxstyle */
+    margin-bottom: 10px; /* Add space below the heading */
+    text-align: center; /* Center headings within the box style */
 }
 
-.box p{
-    padding: 5%;
+.box p {
+    padding: 0; /* Remove padding if margin is on the boxstyle */
+    line-height: 1.6; /* Improve readability */
 }
 
-.box .icon i{
+.box .icon i {
     font-size: 40px;
+    margin-bottom: 15px; /* Add space below the icon */
+    color: #1a2a4b; /* Use the dark blue for icons */
 }
 
-.about{
+/* Styles for the 'about' section */
+.about {
     width: 80%;
-    background: transparent;
+    background-color: #ffffff; /* White background for the about section */
     text-align: justify;
-
+    margin: 20px auto; /* Center and add margin */
+    padding: 20px; /* Add padding inside */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow */
 }
 
-.about h2{
-    padding-left: 5%;
+.about h2 {
+    padding-left: 0; /* Remove left padding if padding is on the .about container */
+    margin-bottom: 10px; /* Add space below heading */
 }
 
-.about p{
-    padding:0 5% 0 5%;
+.about p {
+    padding: 0; /* Remove padding if padding is on the .about container */
+    line-height: 1.6; /* Improve readability */
 }
 
-.footer{
-    width: 100%;
-}
+/* Responsive adjustments */
 @media (max-width: 768px) {
     .box {
         flex-direction: column;
         align-items: center;
+        margin: 30px auto; /* Adjust margin for smaller screens */
     }
 
     .boxstyle {
-        width: 80%;
+        width: 90%; /* Make boxes wider on smaller screens */
         margin-bottom: 20px;
     }
 
     .about {
         width: 90%;
+        margin: 20px auto;
     }
 
     .about h2,
     .about p {
-        padding: 5% 5% 0 5%;
+        padding: 0; /* Remove padding if padding is on the .about container */
     }
 }
 
+/* Add a media query for even smaller screens if needed */
+@media (max-width: 480px) {
+    .boxstyle {
+        width: 100%; /* Full width on very small screens */
+        margin: 10px auto;
+    }
+
+    .about {
+        width: 95%;
+        margin: 10px auto;
+    }
+}
