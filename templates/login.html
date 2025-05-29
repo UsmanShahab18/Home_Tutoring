@@ -2,98 +2,95 @@
 <html lang="en">
 <head>
     <link rel="website icon" type="jpg" href="{{ url_for('static', filename='pic/4ed71003-870f-4434-bf0b-132654eeb671-removebg-preview.png') }}">
-    {# Link Bootstrap 3 CSS #}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    {# Link Font Awesome (ensure this is correct and loaded) #}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" xintegrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}"> {# Your custom CSS for login #}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | Home Tutor</title>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            {# Center the form container in the middle of the page #}
-            <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-                <div class="form-container">
-                    {# User Login Form #}
-                    <div class="user-login-form">
-                        <form action="{{ url_for('login') }}" method="POST">
-                            <h1>User Login</h1>
-                            {% if msg and 'user' in msg %}
-                            <div class="alert alert-danger">{{ msg['user'] }}</div>
-                            {% endif %}
-                            <div class="form-group box"> {# Bootstrap form-group for spacing and validation #}
-                                <i class="fa-solid fa-user icon"></i>
-                                <input
-                                    type="text"
-                                    class="form-control" {# Bootstrap form control for styling inputs #}
-                                    placeholder="Username"
-                                    name="user_username"
-                                    required
-                                >
-                            </div>
-                            <div class="form-group box">
-                                <i class="fa fa-lock icon" aria-hidden="true"></i>
-                                <input
-                                    type="password"
-                                    class="form-control"
-                                    placeholder="Password"
-                                    name="user_password"
-                                    required
-                                >
-                            </div>
-                            <div class="remember">
-                                <label class="checkbox-inline">
-                                    <input type="checkbox">Remember me
-                                </label>
-                                <a href="#">Forget password?</a>
-                            </div>
-                            <div class="button">
-                                <button type="submit" class="btn btn-primary btn-block">User Login</button> {# Bootstrap button #}
-                                <input type="hidden" name="form_type" value="user">
-                            </div>
-                            <div class="register">
-                                <span>Don't have an account?</span>
-                                <a href="{{ url_for('signup') }}">Register</a>
-                            </div>
-                        </form>
+    <div class="login-container">
+        <div class="slider-container">
+            <!-- Slider Navigation -->
+            <div class="slider-nav">
+                <button class="slider-btn user-btn active" data-target="user-form">
+                    <i class="fas fa-user-graduate"></i> Student Login
+                </button>
+                <button class="slider-btn admin-btn" data-target="admin-form">
+                    <i class="fas fa-user-tie"></i> Admin Login
+                </button>
+                <div class="slider-indicator"></div>
+            </div>
+            
+            <!-- Forms Container -->
+            <div class="forms-container">
+                <!-- User Login Form -->
+                <div class="login-form user-form active" id="user-form">
+                    <div class="form-header">
+                        <h2>Welcome Back!</h2>
+                        <p>Sign in to continue your learning journey</p>
                     </div>
-
-                    {# Administrator Login Form #}
-                    <div class="admin-login-form">
-                        <form action="{{ url_for('login') }}" method="POST">
-                            <h1>Admin Login</h1>
-                            {% if msg and 'admin' in msg %}
-                            <div class="alert alert-danger">{{ msg['admin'] }}</div>
-                            {% endif %}
-                            <div class="form-group box">
-                                <i class="fa-solid fa-user-tie icon"></i> {# Different icon for admin #}
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    placeholder="Admin Username"
-                                    name="admin_username"
-                                    required
-                                >
-                            </div>
-                            <div class="form-group box">
-                                <i class="fa fa-lock icon" aria-hidden="true"></i>
-                                <input
-                                    type="password"
-                                    class="form-control"
-                                    placeholder="Admin Password"
-                                    name="admin_password"
-                                    required
-                                >
-                            </div>
-                            <div class="button">
-                                <button type="submit" class="btn btn-warning btn-block">Admin Login</button> {# Bootstrap warning button #}
-                                <input type="hidden" name="form_type" value="admin">
-                            </div>
-                        </form>
+                    
+                    <form action="{{ url_for('login') }}" method="POST">
+                        {% if msg and 'user' in msg %}
+                        <div class="alert alert-danger">{{ msg['user'] }}</div>
+                        {% endif %}
+                        
+                        <div class="form-group box">
+                            <i class="fa-solid fa-user icon"></i>
+                            <input type="text" class="form-control" placeholder="abc@gmail.com" name="user_username" required>
+                        </div>
+                        
+                        <div class="form-group box">
+                            <i class="fa fa-lock icon"></i>
+                            <input type="password" class="form-control" placeholder="Password" name="user_password" required>
+                        </div>
+                        
+                        <div class="form-options">
+                            <label class="checkbox-container">
+                                <input type="checkbox" name="remember">
+                                <span class="checkmark"></span>
+                                Remember me
+                            </label>
+                            <a href="#" class="forgot-password">Forgot password?</a>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Login</button>
+                        <input type="hidden" name="form_type" value="user">
+                        
+                        <div class="register-link">
+                            Don't have an account? <a href="{{ url_for('signup') }}">Register here</a>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Admin Login Form -->
+                <div class="login-form admin-form" id="admin-form">
+                    <div class="form-header">
+                        <h2>Admin Portal</h2>
+                        <p>Access your management dashboard</p>
                     </div>
+                    
+                    <form action="{{ url_for('login') }}" method="POST">
+                        {% if msg and 'admin' in msg %}
+                        <div class="alert alert-danger">{{ msg['admin'] }}</div>
+                        {% endif %}
+                        
+                        <div class="form-group box">
+                            <i class="fa-solid fa-user-tie icon"></i>
+                            <input type="text" class="form-control" placeholder="Admin Username" name="admin_username" required>
+                        </div>
+                        
+                        <div class="form-group box">
+                            <i class="fa fa-lock icon"></i>
+                            <input type="password" class="form-control" placeholder="Admin Password" name="admin_password" required>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Login</button>
+                        <input type="hidden" name="form_type" value="admin">
+                    </form>
                 </div>
             </div>
         </div>
@@ -101,5 +98,38 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            $('.slider-btn').click(function() {
+                // Update active button
+                $('.slider-btn').removeClass('active');
+                $(this).addClass('active');
+                
+                // Move slider indicator
+                const target = $(this).data('target');
+                const btnWidth = $(this).outerWidth();
+                const btnPosition = $(this).position().left;
+                
+                $('.slider-indicator').css({
+                    'width': btnWidth + 'px',
+                    'left': btnPosition + 'px'
+                });
+                
+                // Show corresponding form
+                $('.login-form').removeClass('active');
+                $('#' + target).addClass('active');
+            });
+            
+            // Initialize slider indicator position
+            const activeBtn = $('.slider-btn.active');
+            const btnWidth = activeBtn.outerWidth();
+            const btnPosition = activeBtn.position().left;
+            
+            $('.slider-indicator').css({
+                'width': btnWidth + 'px',
+                'left': btnPosition + 'px'
+            });
+        });
+    </script>
 </body>
 </html>

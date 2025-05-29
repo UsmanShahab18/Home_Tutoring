@@ -1,0 +1,11 @@
+[
+    {
+        "id": 1,
+        "username": "uu1233997@gmail.com",
+        "password": "scrypt:32768:8:1$yjyLcRxNv8dnrBbp$1b84bb657cab113289e4d694c3ce8115d54c2a516a0307ae172818fd5fdf2806231c355962b23b3226b12f4f5fd10085481849111c8b34c52f57c16164028d8d",
+        "email": "uu1233997@gmail.com",
+        "full_name": "Mian Usman Shahab",
+        "contact": "123456",
+        "is_offline_record": true
+    }
+]

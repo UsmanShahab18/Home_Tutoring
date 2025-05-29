@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard | User Data</title>
     {# Link Bootstrap 3 CSS #}
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" xintegrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     {# Link Bootstrap 3 Theme CSS (Optional) #}
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" xintegrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     {# Link Font Awesome #}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" xintegrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
         /* Add some margin to the top of the container */
@@ -23,6 +23,28 @@
         .action-buttons .btn {
             margin-right: 5px; /* Space between buttons */
         }
+        /* Styling for AJAX messages */
+        .alert {
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+        }
+        .alert-success {
+            color: #3c763d;
+            background-color: #dff0d8;
+            border-color: #d6e9c6;
+        }
+        .alert-danger {
+            color: #a94442;
+            background-color: #f2dede;
+            border-color: #ebccd1;
+        }
+        .alert-info { /* Added for 'Deleting user...' message */
+            color: #31708f;
+            background-color: #d9edf7;
+            border-color: #bce8f1;
+        }
     </style>
 </head>
 <body>
@@ -30,6 +52,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
+                <div id="ajax-message" class="alert" style="display: none;"></div> 
+                
                 <div class="panel panel-primary"> {# Using panel-primary for a blue header #}
                     <div class="panel-heading">
                         <h3 class="panel-title">All Registered Users</h3>
@@ -58,14 +82,14 @@
                                             <td>{{ user.full_name if user.full_name else 'N/A' }}</td> {# Display Full Name or 'N/A' if null #}
                                             <td>{{ user.contact if user.contact else 'N/A' }}</td>  {# Display Contact or 'N/A' if null #}
                                             <td class="action-buttons">
-                                                {# Edit Button (Placeholder) #}
+                                                {# Edit Button #}
                                                 <a href="{{ url_for('edit_user', user_id=user.id) }}" class="btn btn-primary btn-xs">
                                                     <i class="fas fa-edit"></i> Edit
                                                 </a>
-                                                {# Delete Button (Placeholder - using a form for proper DELETE request) #}
-                                                <form action="{{ url_for('delete_user', user_id=user.id) }}" method="POST" style="display: inline;">
-                                                    <button type="submit" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure you want to delete this user?');">
-                                                         <i class="fas fa-trash-alt"></i> Delete
+                                                {# Delete Button - now uses AJAX #}
+                                                <form class="delete-user-form" action="{{ url_for('delete_user', user_id=user.id) }}" method="POST" style="display: inline;">
+                                                    <button type="submit" class="btn btn-danger btn-xs">
+                                                        <i class="fas fa-trash-alt"></i> Delete
                                                     </button>
                                                 </form>
                                             </td>
@@ -94,7 +118,67 @@
 
     {# Link jQuery (Bootstrap JS dependency) and Bootstrap 3 JS #}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkFuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" xintegrity="sha384-Tc5IQib027qvyjSMfHjOMaLkFuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+    <script>
+        $(document).ready(function() {
+            // Get the message display div
+            const ajaxMessageDiv = $('#ajax-message');
+
+            // Function to display messages
+            function showMessage(message, type) {
+                ajaxMessageDiv.text(message)
+                              .removeClass('alert-success alert-danger alert-info') // Remove all types first
+                              .addClass('alert-' + type)
+                              .fadeIn(); // Use fadeIn for a smoother appearance
+                // Automatically hide the message after 5 seconds
+                setTimeout(function() {
+                    ajaxMessageDiv.fadeOut();
+                }, 5000);
+            }
+
+            // Attach event listener to all forms with class 'delete-user-form'
+            $('.delete-user-form').on('submit', function(event) {
+                event.preventDefault(); // Prevent default form submission
+
+                const form = $(this);
+                const actionUrl = form.attr('action'); // Get the URL from the form's action attribute
+                const userId = actionUrl.split('/').pop(); // Extract user ID from the URL
+
+                // Custom confirmation dialog (replaces native confirm())
+                if (!confirm(`Are you sure you want to delete user ID ${userId}? This action cannot be undone.`)) {
+                    return; // If user cancels, do nothing
+                }
+
+                // Show a temporary message while processing
+                showMessage('Deleting user...', 'info');
+
+                $.ajax({
+                    url: actionUrl,
+                    type: 'POST',
+                    data: form.serialize(), // Send any form data if needed (e.g., CSRF token)
+                    dataType: 'json', // Expect JSON response
+                    success: function(response) {
+                        if (response.status === 'success') {
+                            // Remove the table row visually
+                            form.closest('tr').remove();
+                            showMessage(response.message, 'success');
+                        } else {
+                            showMessage(response.message, 'danger');
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        let errorMessage = 'An unexpected error occurred during deletion.';
+                        if (xhr.responseJSON && xhr.responseJSON.message) {
+                            errorMessage = xhr.responseJSON.message;
+                        } else if (error) {
+                            errorMessage = 'Error: ' + error;
+                        }
+                        showMessage(errorMessage, 'danger');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

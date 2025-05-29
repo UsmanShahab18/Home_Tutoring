@@ -6,13 +6,13 @@
     <title>Our Tutors - Home Tutoring</title>
     <link rel="website icon" type="jpg" href="/static/pic/4ed71003-870f-4434-bf0b-132654eeb671-removebg-preview.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/css/header-footer.css">
     <link rel="stylesheet" href="/static/css/ourtutors.css">
     <script src="/static/JavaScript/header&footer.js"></script>
-    </head>
+</head>
 <body>
 
     <header>
@@ -22,7 +22,7 @@
         <nav class="navbar">
             <ul>
                 <li><a href="{{ url_for('index') }}">Home</a></li>
-                <li><a href="{{ url_for('OurTutors') }}">OurTutors</a></li>
+                <li><a href="{{ url_for('OurTutors') }}">Our Tutors</a></li>
                 <li><a href="#">More <i class="fas fa-caret-down icon"></i></a>
                     <ul>
                         <li><a href="{{ url_for('aboutus') }}">About us</a></li>
@@ -34,82 +34,366 @@
             </ul>
         </nav>
     </header>
+
+    <div class="container-fluid hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <h1 class="hero-title">Meet Our Exceptional Tutors</h1>
+                    <p class="hero-subtitle">Passionate educators dedicated to unlocking your academic potential</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container main-content">
-        <h1 class="text-center page-title">Meet Our Tutors</h1>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <h2 class="section-title">Why Students Excel With Our Tutors</h2>
+                <div class="divider"></div>
+                <p class="section-intro">
+                    Our tutors aren't just teachers - they're mentors who combine academic excellence with personalized teaching approaches. 
+                    With an average of 5+ years experience and degrees from top universities, they're equipped to help students at every level.
+                </p>
+            </div>
+        </div>
+
+        <div class="row stats-section">
+            <div class="col-md-3 col-sm-6 text-center">
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Verified Tutors</div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 text-center">
+                <div class="stat-item">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Student Satisfaction</div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 text-center">
+                <div class="stat-item">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Years Avg. Experience</div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 text-center">
+                <div class="stat-item">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">Students Helped</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row filter-section">
+            <div class="col-md-12 text-center">
+                <h3>Find Your Perfect Tutor</h3>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-filter active">All Subjects</button>
+                    <button type="button" class="btn btn-filter">Science</button>
+                    <button type="button" class="btn btn-filter">Humanities</button>
+                    <button type="button" class="btn btn-filter">Languages</button>
+                    <button type="button" class="btn btn-filter">Math</button>
+                </div>
+            </div>
+        </div>
 
         <div class="row sub_container">
+            <!-- Tutor 1 -->
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <div class="tutor-profile panel panel-default">
                     <div class="panel-body text-center">
+                        <div class="tutor-badge">Top Rated</div>
                         <img src="/static/pic/Tutor_Pic/1.jpg" class="img-responsive img-circle tutor-img" alt="Ms. Sophia Green">
                         <h3 class="tutor-name">Ms. Sophia Green</h3>
                         <p class="tutor-education">BS Biology, University of Toronto</p>
-                        <p class="tutor-subjects">Subjects Taught: Biology, Chemistry, Geography</p>
-                        <a href="#" class="btn btn-primary tutor-link">View Profile</a>
+                        <div class="tutor-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.7 (28 reviews)</span>
+                        </div>
+                        <p class="tutor-experience"><strong>Experience:</strong> 5+ Years</p>
+                        <div class="tutor-subjects">
+                            <span class="subject-tag">Biology</span>
+                            <span class="subject-tag">Chemistry</span>
+                            <span class="subject-tag">Geography</span>
+                        </div>
+                        <p class="tutor-quote"><em>"Inspiring curiosity, one student at a time."</em></p>
+                        <div class="tutor-actions">
+                            <a href="#" class="btn btn-primary tutor-link">View Profile</a>
+                            <a href="#" class="btn btn-outline tutor-link">Book Trial</a>
+                        </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Tutor 2 -->
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <div class="tutor-profile panel panel-default">
                     <div class="panel-body text-center">
-                        <img src="/static/pic/Tutor_Pic/2.jpg" class="img-responsive img-circle tutor-img" alt="Tutor Name Placeholder">
+                        <div class="tutor-badge">Popular</div>
+                        <img src="/static/pic/Tutor_Pic/2.jpg" class="img-responsive img-circle tutor-img" alt="Ms. Charlotte Hughes">
                         <h3 class="tutor-name">Ms. Charlotte Hughes</h3>
                         <p class="tutor-education">BA Economics & East Asian Studies, Harvard University</p>
-                        <p class="tutor-subjects">Subjects Taught: Chinese, Economics, Geography</p>
-                        <a href="#" class="btn btn-primary tutor-link">View Profile</a>
+                        <div class="tutor-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>5.0 (42 reviews)</span>
+                        </div>
+                        <p class="tutor-experience"><strong>Experience:</strong> 4 Years</p>
+                        <div class="tutor-subjects">
+                            <span class="subject-tag">Chinese</span>
+                            <span class="subject-tag">Economics</span>
+                            <span class="subject-tag">Geography</span>
+                        </div>
+                        <p class="tutor-quote"><em>"Unlocking potential through understanding."</em></p>
+                        <div class="tutor-actions">
+                            <a href="#" class="btn btn-primary tutor-link">View Profile</a>
+                            <a href="#" class="btn btn-outline tutor-link">Book Trial</a>
+                        </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Tutor 3 -->
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <div class="tutor-profile panel panel-default">
                     <div class="panel-body text-center">
-                        <img src="/static/pic/Tutor_Pic/3.jpg" class="img-responsive img-circle tutor-img" alt="Tutor Name Placeholder">
+                        <div class="tutor-badge">Expert</div>
+                        <img src="/static/pic/Tutor_Pic/3.jpg" class="img-responsive img-circle tutor-img" alt="Mr. John Anderson">
                         <h3 class="tutor-name">Mr. John Anderson</h3>
                         <p class="tutor-education">MSc Mathematics, University of Cambridge</p>
-                        <p class="tutor-subjects">Subjects Taught: Math, Physics, Chemistry.</p>
-                        <a href="#" class="btn btn-primary tutor-link">View Profile</a>
+                        <div class="tutor-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>5.0 (36 reviews)</span>
+                        </div>
+                        <p class="tutor-experience"><strong>Experience:</strong> 7 Years</p>
+                        <div class="tutor-subjects">
+                            <span class="subject-tag">Math</span>
+                            <span class="subject-tag">Physics</span>
+                            <span class="subject-tag">Chemistry</span>
+                        </div>
+                        <p class="tutor-quote"><em>"Making complex concepts simple and clear."</em></p>
+                        <div class="tutor-actions">
+                            <a href="#" class="btn btn-primary tutor-link">View Profile</a>
+                            <a href="#" class="btn btn-outline tutor-link">Book Trial</a>
+                        </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Tutor 4 -->
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <div class="tutor-profile panel panel-default">
                     <div class="panel-body text-center">
-                        <img src="/static/pic/Tutor_Pic/4.jpg" class="img-responsive img-circle tutor-img" alt="Tutor Name Placeholder">
+                        <img src="/static/pic/Tutor_Pic/4.jpg" class="img-responsive img-circle tutor-img" alt="Ms. Olivia Bennett">
                         <h3 class="tutor-name">Ms. Olivia Bennett</h3>
                         <p class="tutor-education">MSc Physics, Stanford University</p>
-                        <p class="tutor-subjects">Subjects Taught: Physics, Math, Chemistry</p>
-                        <a href="#" class="btn btn-primary tutor-link">View Profile</a>
+                        <div class="tutor-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>4.2 (19 reviews)</span>
+                        </div>
+                        <p class="tutor-experience"><strong>Experience:</strong> 6+ Years</p>
+                        <div class="tutor-subjects">
+                            <span class="subject-tag">Physics</span>
+                            <span class="subject-tag">Math</span>
+                            <span class="subject-tag">Chemistry</span>
+                        </div>
+                        <p class="tutor-quote"><em>"Exploring the wonders of science together."</em></p>
+                        <div class="tutor-actions">
+                            <a href="#" class="btn btn-primary tutor-link">View Profile</a>
+                            <a href="#" class="btn btn-outline tutor-link">Book Trial</a>
+                        </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Tutor 5 -->
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <div class="tutor-profile panel panel-default">
                     <div class="panel-body text-center">
-                        <img src="/static/pic/Tutor_Pic/5.jpg" class="img-responsive img-circle tutor-img" alt="Tutor Name Placeholder">
+                        <img src="/static/pic/Tutor_Pic/5.jpg" class="img-responsive img-circle tutor-img" alt="Mr. Michael Brooks">
                         <h3 class="tutor-name">Mr. Michael Brooks</h3>
                         <p class="tutor-education">BA History, University of Chicago</p>
-                        <p class="tutor-subjects">Subjects Taught: History, Philosophy, English</p>
-                        <a href="#" class="btn btn-primary tutor-link">View Profile</a>
+                        <div class="tutor-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.6 (23 reviews)</span>
+                        </div>
+                        <p class="tutor-experience"><strong>Experience:</strong> 5 Years</p>
+                        <div class="tutor-subjects">
+                            <span class="subject-tag">History</span>
+                            <span class="subject-tag">Philosophy</span>
+                            <span class="subject-tag">English</span>
+                        </div>
+                        <p class="tutor-quote"><em>"Connecting the past to the present."</em></p>
+                        <div class="tutor-actions">
+                            <a href="#" class="btn btn-primary tutor-link">View Profile</a>
+                            <a href="#" class="btn btn-outline tutor-link">Book Trial</a>
+                        </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Tutor 6 -->
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <div class="tutor-profile panel panel-default">
                     <div class="panel-body text-center">
-                        <img src="/static/pic/Tutor_Pic/6.jpg" class="img-responsive img-circle tutor-img" alt="Tutor Name Placeholder">
+                        <div class="tutor-badge">New</div>
+                        <img src="/static/pic/Tutor_Pic/6.jpg" class="img-responsive img-circle tutor-img" alt="Ms. Emily Carter">
                         <h3 class="tutor-name">Ms. Emily Carter</h3>
                         <p class="tutor-education">MA English Literature, University of Oxford</p>
-                        <p class="tutor-subjects">Subjects Taught: English, Philosophy, History</p>
-                        <a href="#" class="btn btn-primary tutor-link">View Profile</a>
+                        <div class="tutor-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>4.0 (8 reviews)</span>
+                        </div>
+                        <p class="tutor-experience"><strong>Experience:</strong> 8 Years</p>
+                        <div class="tutor-subjects">
+                            <span class="subject-tag">English</span>
+                            <span class="subject-tag">Philosophy</span>
+                            <span class="subject-tag">History</span>
+                        </div>
+                        <p class="tutor-quote"><em>"Fostering a lifelong love for literature."</em></p>
+                        <div class="tutor-actions">
+                            <a href="#" class="btn btn-primary tutor-link">View Profile</a>
+                            <a href="#" class="btn btn-outline tutor-link">Book Trial</a>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
 
+        <div class="row text-center">
+            <div class="col-md-12">
+                <button class="btn btn-load-more">Load More Tutors</button>
+            </div>
+        </div>
+
+        <div class="row testimonial-section">
+            <div class="col-md-12 text-center">
+                <h2 class="section-title">What Our Students Say</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p>Ms. Green made biology come alive for me. Her teaching style is engaging and she breaks down complex concepts so they're easy to understand.</p>
+                        <i class="fas fa-quote-right quote-icon"></i>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/25.jpg" class="img-circle testimonial-img">
+                        <h5>Sarah Johnson</h5>
+                        <p>Grade 11 Student</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p>Mr. Anderson's math tutoring helped me improve my grade from a C to an A in just three months. His patience and clear explanations were exactly what I needed.</p>
+                        <i class="fas fa-quote-right quote-icon"></i>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="img-circle testimonial-img">
+                        <h5>Michael Chen</h5>
+                        <p>Grade 10 Student</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial-item">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p>Learning Chinese with Ms. Hughes has been amazing. She makes the language accessible and fun, and I've progressed much faster than I expected.</p>
+                        <i class="fas fa-quote-right quote-icon"></i>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/45.jpg" class="img-circle testimonial-img">
+                        <h5>Emily Rodriguez</h5>
+                        <p>Adult Learner</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row why-choose-us-section">
+            <div class="col-md-12 text-center">
+                <h2 class="section-title">Our Teaching Methodology</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="col-md-4 text-center feature-item">
+                <div class="feature-icon-circle">
+                    <i class="fas fa-user-check feature-icon"></i>
+                </div>
+                <h4>Diagnostic Assessment</h4>
+                <p>We begin with a comprehensive evaluation to identify strengths, weaknesses, and learning style to create a customized learning plan.</p>
+            </div>
+            <div class="col-md-4 text-center feature-item">
+                <div class="feature-icon-circle">
+                    <i class="fas fa-chalkboard-teacher feature-icon"></i>
+                </div>
+                <h4>Conceptual Understanding</h4>
+                <p>Our tutors focus on building strong foundational knowledge rather than rote memorization.</p>
+            </div>
+            <div class="col-md-4 text-center feature-item">
+                <div class="feature-icon-circle">
+                    <i class="fas fa-lightbulb feature-icon"></i>
+                </div>
+                <h4>Application & Practice</h4>
+                <p>Students apply concepts through targeted exercises and real-world examples to reinforce learning.</p>
+            </div>
+        </div>
+
+        <div class="row cta-section">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <h3>Ready to Find Your Perfect Tutor?</h3>
+                <p>Get matched with a tutor who fits your learning style and academic needs.</p>
+                <a href="#" class="btn btn-primary btn-lg cta-button">Get Started Today</a>
+            </div>
         </div>
     </div>
 
@@ -119,7 +403,7 @@
                 <div class="footer-col">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#">About Home Tutoring</a></li>
+                        <li><a href="{{ url_for('aboutus') }}">About Home Tutoring</a></li>
                         <li><a href="#">Teams and Careers</a></li>
                         <li><a href="#">For parents</a></li>
                         <li><a href="#">Partner with us</a></li>
@@ -128,29 +412,48 @@
                 <div class="footer-col">
                     <h4>Contact us</h4>
                     <ul>
-                        <li><a href="#">contact@home-class.com</a></li>
-                        <li><a href="">+44 2032397887</a></li>
-                        <li><a href="">service01@home-class.com</a></li>
+                        <li><a href="mailto:contact@home-class.com">contact@home-class.com</a></li>
+                        <li><a href="tel:+442032397887">+44 2032397887</a></li>
+                        <li><a href="mailto:service01@home-class.com">service01@home-class.com</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Apply to be a tutor</h4>
                     <ul>
-                        <li><a href="#">tutor@home-class.com</a></li>
+                        <li><a href="mailto:tutor@home-class.com">tutor@home-class.com</a></li>
+                        <li><a href="#">Tutor Requirements</a></li>
+                        <li><a href="#">Application Process</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Home Tutoring</h4>
+                    <h4>Follow Us</h4>
                     <div class="social-links">
                         <a href="#"><i class="fa-brands fa-facebook"></i></a>
                         <a href="#"><i class="fa-brands fa-youtube"></i></a>
                         <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
                     </div>
+                    <div class="newsletter">
+                        <h5>Subscribe to our newsletter</h5>
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Your email">
+                            </div>
+                            <button type="submit" class="btn btn-subscribe">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center footer-bottom">
+                    <p>&copy; 2023 Home Tutoring. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
                 </div>
             </div>
         </div>
     </footer>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    </body>
+</body>
 </html>

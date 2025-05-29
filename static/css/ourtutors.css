@@ -1,62 +1,170 @@
-
+/* Base Styles */
 body {
     min-height: 100vh;
-    display: block; 
+    display: block;
     font-family: 'Roboto', sans-serif;
     background-color: #f8f8f8;
     color: #333;
+    line-height: 1.6;
 }
 
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #001f3f 0%, #003366 100%);
+    color: white;
+    padding: 80px 0;
+    margin-bottom: 40px;
+    background-size: cover;
+    background-position: center;
+}
 
+.hero-title {
+    font-size: 2.8em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.hero-subtitle {
+    font-size: 1.4em;
+    font-weight: 300;
+    margin-bottom: 0;
+}
+
+/* Main Content */
 .main-content {
-    padding: 30px 15px;
-    background-color: #f8f8f8; 
+    padding: 40px 15px;
+    background-color: #f8f8f8;
 }
 
+.section-title {
+    margin-bottom: 30px;
+    font-weight: 700;
+    color: #1a2a4b;
+    position: relative;
+    padding-bottom: 15px;
+}
 
+.divider {
+    width: 80px;
+    height: 3px;
+    background-color: #a6c1ee;
+    margin: 0 auto 30px auto;
+}
+
+.section-intro {
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* Stats Section */
+.stats-section {
+    margin: 50px 0;
+    padding: 30px 0;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.stat-item {
+    padding: 20px;
+}
+
+.stat-number {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #1a2a4b;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* Filter Section */
+.filter-section {
+    margin: 40px 0;
+    padding: 20px 0;
+}
+
+.btn-filter {
+    background-color: white;
+    border: 1px solid #ddd;
+    color: #555;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn-filter.active, .btn-filter:hover {
+    background-color: #a6c1ee;
+    color: #1a2a4b;
+    border-color: #a6c1ee;
+}
+
+/* Tutor Profiles */
 .sub_container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; 
-    gap: 20px; 
-
+    justify-content: center;
+    gap: 25px;
     align-items: stretch;
 }
 
 .tutor-profile {
     margin-bottom: 30px;
-    border-radius: 8px;
-    border: 1px solid #ddd; 
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    background-color: #ffffff; 
-    width: 300px; 
-    display: flex; 
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    background-color: #ffffff;
+    width: 300px;
+    display: flex;
     flex-direction: column;
-    overflow: hidden; 
+    overflow: hidden;
     flex-grow: 1;
     flex-shrink: 1;
-    min-height: 350px; 
+    min-height: 480px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.tutor-profile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+.tutor-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #a6c1ee;
+    color: #1a2a4b;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: bold;
+    z-index: 1;
 }
 
 .tutor-profile .panel-body {
-    padding: 20px;
-    text-align: center; 
+    padding: 25px;
+    text-align: center;
     flex-grow: 1;
-    display: flex; 
+    display: flex;
     flex-direction: column;
-    justify-content: space-between; 
-    align-items: center; 
+    justify-content: space-between;
+    align-items: center;
 }
-
 
 .tutor-img {
     width: 150px;
     height: 150px;
     object-fit: cover;
-    margin: 0 auto 15px auto;
-    border: 3px solid #1a2a4b; 
+    margin: 0 auto 20px auto;
+    border: 3px solid #1a2a4b;
     border-radius: 50%;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease;
 }
 
 .tutor-img:hover {
@@ -65,84 +173,342 @@ body {
 
 .tutor-name {
     margin-top: 0;
-    margin-bottom: 5px;
-    color: #1a2a4b; 
-    font-size: 1.5em;
-    font-weight: bold; 
+    margin-bottom: 8px;
+    color: #1a2a4b;
+    font-size: 1.6em;
+    font-weight: 700;
 }
 
 .tutor-education {
     margin-top: 0;
     margin-bottom: 5px;
     color: #555;
-    font-size: 1.1em;
+    font-size: 0.95em;
+    font-weight: 500;
+}
+
+.tutor-rating {
+    margin: 10px 0;
+    color: #f8c537;
+    font-size: 0.9em;
+}
+
+.tutor-rating span {
+    color: #555;
+    margin-left: 5px;
+}
+
+.tutor-experience {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #555;
+    font-size: 0.95em;
+}
+
+.tutor-experience strong {
+    color: #1a2a4b;
 }
 
 .tutor-subjects {
-    margin-top: 0;
-    margin-bottom: 15px;
-    color: #555;
-    font-size: 1em;
+    margin: 15px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+.subject-tag {
+    background-color: #f0f4fa;
+    color: #1a2a4b;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.8em;
+    font-weight: 500;
+}
+
+.tutor-quote {
+    margin: 15px 0;
+    color: #777;
+    font-size: 0.95em;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+.tutor-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    width: 100%;
 }
 
 .tutor-link {
-    margin-top: auto; 
-    
-    display: inline-block;
+    flex: 1;
     padding: 10px 15px;
     background-color: #a6c1ee;
-    color: #1a2a4b; 
+    color: #1a2a4b;
     text-decoration: none;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    border: none;
+    text-align: center;
 }
 
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid #a6c1ee;
+    color: #1a2a4b;
+}
 
-@media (max-width: 991px) {
-    body {
-        padding-top: 0;
+.btn-outline:hover {
+    background-color: #a6c1ee;
+    color: #1a2a4b;
+}
+
+.tutor-link:hover {
+    background-color: #8ca9d8;
+    color: #1a2a4b;
+    text-decoration: none;
+    transform: translateY(-2px);
+}
+
+/* Load More Button */
+.btn-load-more {
+    background-color: #1a2a4b;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    margin: 40px 0;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-load-more:hover {
+    background-color: #0e1a33;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Testimonial Section */
+.testimonial-section {
+    margin: 60px 0;
+}
+
+.testimonial-item {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonial-content {
+    position: relative;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.quote-icon {
+    color: #a6c1ee;
+    font-size: 1.5em;
+    opacity: 0.5;
+}
+
+.testimonial-content p {
+    font-style: italic;
+    color: #555;
+    line-height: 1.6;
+    margin: 15px 0;
+}
+
+.testimonial-author {
+    text-align: center;
+}
+
+.testimonial-img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #a6c1ee;
+}
+
+.testimonial-author h5 {
+    color: #1a2a4b;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.testimonial-author p {
+    color: #777;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.rating {
+    color: #f8c537;
+    font-size: 0.9em;
+}
+
+/* Why Choose Us Section */
+.why-choose-us-section {
+    padding: 60px 0;
+    background-color: white;
+    margin: 40px 0;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.feature-item {
+    padding: 20px;
+}
+
+.feature-icon-circle {
+    width: 80px;
+    height: 80px;
+    background-color: #f0f4fa;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px auto;
+}
+
+.feature-icon {
+    color: #1a2a4b;
+    font-size: 2em;
+}
+
+.feature-item h4 {
+    color: #1a2a4b;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.feature-item p {
+    color: #555;
+    font-size: 0.95em;
+    line-height: 1.6;
+}
+
+/* CTA Section */
+.cta-section {
+    padding: 60px 0;
+    text-align: center;
+    background-color: #1a2a4b;
+    color: white;
+    border-radius: 8px;
+    margin: 40px 0;
+}
+
+.cta-section h3 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.cta-section p {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.cta-button {
+    background-color: #a6c1ee;
+    color: #1a2a4b;
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.cta-button:hover {
+    background-color: white;
+    color: #1a2a4b;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 2.4em;
     }
-
-    .sub_container {
-        gap: 15px;
+    
+    .hero-subtitle {
+        font-size: 1.2em;
     }
-
+    
     .tutor-profile {
-        width: 45%;
-        margin-bottom: 20px;
-        min-height: 300px; 
-    }
-
-    .tutor-img {
-        width: 100px; 
-        height: 100px;
+        width: 280px;
     }
 }
 
 @media (max-width: 768px) {
+    .hero-section {
+        padding: 60px 0;
+    }
+    
+    .hero-title {
+        font-size: 2em;
+    }
+    
+    .section-title {
+        font-size: 1.8em;
+    }
+    
+    .stat-number {
+        font-size: 2em;
+    }
+    
     .tutor-profile {
-        width: 80%; 
-        min-height: 280px; 
+        width: 100%;
+        max-width: 350px;
+    }
+    
+    .tutor-actions {
+        flex-direction: column;
+    }
+    
+    .tutor-link {
+        width: 100%;
     }
 }
 
-@media (max-width: 480px) {
-    .tutor-profile {
-        width: 95%; 
-        min-height: 250px; 
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 1.8em;
     }
-
-    .tutor-img {
-        width: 80px; 
-        height: 80px;
+    
+    .hero-subtitle {
+        font-size: 1em;
     }
-
-    .tutor-name {
-        font-size: 1.3em; 
+    
+    .section-title {
+        font-size: 1.6em;
     }
-
-    .tutor-education,
-    .tutor-subjects {
-        font-size: 0.9em; 
+    
+    .btn-filter {
+        padding: 5px 10px;
+        font-size: 0.9em;
+    }
+    
+    .testimonial-item {
+        padding: 20px;
+    }
+    
+    .footer-col {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+    .form-inline {
+        flex-direction: column;
     }
 }

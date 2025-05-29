@@ -51,18 +51,35 @@ header .navbar ul li {
     width: auto;
 }
 
-header .navbar ul li a {
+header .navbar ul li > a {
     font-size: 18px;
-    padding: 10px 15px;
-    color: #FFFDD0; /* SCENARIO A: Cream color for links on navy background */
+    padding: 12px 15px;
+    color: #FFFDD0;
     display: block;
     text-decoration: none;
-    transition: color 0.3s ease, background-color 0.3s ease;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
-header .navbar ul li a:hover {
-    background: transparent;
-    color: #B08D57; /* SCENARIO A: Muted Gold for link hover on navy */
+header .navbar ul li > a::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 15px;
+    width: 0;
+    height: 2px;
+    background: #B08D57;
+    transition: width 0.3s ease;
+}
+
+header .navbar ul li > a:hover {
+    color: #B08D57;
+    background: rgba(255, 253, 208, 0.1);
+}
+
+header .navbar ul li > a:hover::after {
+    width: calc(100% - 30px);
 }
 
 header .navbar ul li ul { /* Dropdown menu (Desktop) */
@@ -201,7 +218,7 @@ header label { /* Mobile menu icon (hamburger) */
         border-top: none;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Lighter separator */
     }
-     header .navbar ul li ul li:last-child {
+    header .navbar ul li ul li:last-child {
         border-bottom: none;
     }
 
@@ -236,88 +253,186 @@ ul{
     list-style: none;
 }
 
-.footer{
-    background-color: #0A2342; /* SCENARIO A: Sophisticated Navy Blue primary for footer */
-    padding: 70px 0;
-    color: #E8E8E8; /* SCENARIO A: Default text color Light Gray on navy */
+/* Footer */
+.footer {
+    background-color: #1a2a4b;
+    color: white;
+    padding: 60px 0 20px 0;
 }
 
-.footer-col{
-    width: 25%;
-    padding: 0 15px;
-}
-
-.footer-col h4{
-    font-size: 18px;
-    color: #FFFDD0; /* SCENARIO A: Cream heading on navy background */
-    text-transform: capitalize;
-    margin-bottom: 35px;
-    font-weight: 500;
+.footer h4 {
+    color: white;
+    font-weight: 700;
+    margin-bottom: 25px;
     position: relative;
+    padding-bottom: 10px;
 }
 
-.footer-col h4::before{
+.footer h4::after {
     content: '';
     position: absolute;
     left: 0;
-    bottom: -10px;
-    background-color: #B08D57; /* SCENARIO A: Muted Gold accent */
-    height: 2px;
-    box-sizing: border-box;
+    bottom: 0;
     width: 50px;
+    height: 2px;
+    background-color: #a6c1ee;
 }
 
-.footer-col ul li:not(:last-child){
-    margin-bottom: 10px;
+.footer ul {
+    list-style: none;
+    padding-left: 0;
 }
 
-.footer-col ul li a{
-    font-size: 16px;
-    text-transform: capitalize;
+.footer ul li {
+    margin-bottom: 12px;
+}
+
+.footer ul li a {
+    color: #d1d9e8;
     text-decoration: none;
-    font-weight: 300;
-    color: #E8E8E8; /* SCENARIO A: Light Gray for footer links on navy */
-    display: block;
     transition: all 0.3s ease;
 }
 
-.footer-col ul li a:hover{
-    color: #B08D57; /* SCENARIO A: Muted Gold for footer link hover */
-    padding-left: 8px;
+.footer ul li a:hover {
+    color: white;
 }
 
-.footer-col .social-links a{
-    display: inline-block;
-    height: 40px;
+.footer-col {
+    padding: 0 15px;
+    margin-bottom: 30px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.social-links a {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
     width: 40px;
-    background-color: rgba(232, 232, 232, 0.2); /* SCENARIO A: Transparent light gray on navy */
-    margin:0 10px 10px 0;
-    text-align: center;
-    line-height: 40px;
+    height: 40px;
     border-radius: 50%;
-    color: #FFFDD0; /* SCENARIO A: Cream icon color */
-    transition: all 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
 }
 
-.footer-col .social-links a:hover{
-    color: #0A2342; /* SCENARIO A: Navy icon on gold background */
-    background-color: #B08D57; /* SCENARIO A: Muted Gold background for social icon hover */
+.social-links a:hover {
+    background-color: #a6c1ee;
+    color: #1a2a4b;
+    transform: translateY(-3px);
 }
 
-/* Responsive Footer Adjustments */
+.newsletter {
+    margin-top: 20px;
+}
+
+.newsletter h5 {
+    font-size: 1em;
+    margin-bottom: 15px;
+    color: #d1d9e8;
+}
+
+.form-inline {
+    display: flex;
+    gap: 10px;
+}
+
+.form-control {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 30px;
+    flex-grow: 1;
+}
+
+.form-control::placeholder {
+    color: #d1d9e8;
+    opacity: 0.7;
+}
+
+.btn-subscribe {
+    background-color: #a6c1ee;
+    color: #1a2a4b;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-subscribe:hover {
+    background-color: white;
+    transform: translateY(-2px);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    margin-top: 20px;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #d1d9e8;
+    font-size: 0.9em;
+    margin-bottom: 0;
+}
+
+.footer-bottom a {
+    color: #a6c1ee;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-bottom a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
 @media (max-width: 767px) {
-    .footer .row {
-        flex-direction: column;
-    }
     .footer-col {
         width: 100%;
         margin-bottom: 30px;
     }
+    
+    .form-inline {
+        flex-direction: column;
+    }
+    
+    .btn-subscribe {
+        width: 100%;
+    }
 }
 
-@media (max-width: 991px) and (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 991px) {
     .footer-col {
         width: 50%;
-        margin-bottom: 30px;
+    }
+}
+
+@media (min-width: 992px) {
+    .footer-col {
+        width: 25%;
+    }
+    
+    /* Assuming you have 4 columns on desktop */
+    .footer-col:first-child {
+        width: 30%;
+    }
+    
+    .footer-col:nth-child(2),
+    .footer-col:nth-child(3) {
+        width: 20%;
+    }
+    
+    .footer-col:last-child {
+        width: 30%;
     }
 }

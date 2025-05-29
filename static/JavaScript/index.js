@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 
                 entry.target.style.transitionProperty = 'opacity, transform';
-                entry.target.style.transitionDuration = '0.3s'; // Standard duration
+                entry.target.style.transitionDuration = '0.2s'; // Standard duration
                 entry.target.style.transitionTimingFunction = 'ease-out';
 
                 observer.unobserve(entry.target);

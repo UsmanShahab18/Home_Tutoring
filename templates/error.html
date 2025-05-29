@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Occurred</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        body {
+            padding-top: 50px;
+            font-family: 'Arial', sans-serif;
+        }
+        .error-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .jumbotron {
+            background-color: #f2dede; /* Light red for error indication */
+            color: #a94442; /* Dark red text */
+            border: 1px solid #ebccd1;
+        }
+        .jumbotron h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .error-details {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #333; /* Darker text for details */
+        }
+        .btn-custom {
+            margin: 10px 5px;
+        }
+        #countdown {
+            margin-top: 15px;
+            font-style: italic;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container error-container">
+        <div class="jumbotron">
+            <h1><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Oops!</h1>
+            <p class="lead">An unexpected error has occurred.</p>
+            <hr>
+            {% if error_message %}
+                <p class="error-details"><strong>Details:</strong> {{ error_message }}</p>
+            {% else %}
+                <p class="error-details">We're sorry for the inconvenience. Please try again later, or contact support if the problem persists.</p>
+            {% endif %}
+        </div>
+
+        <p>
+            <button onclick="goBack()" class="btn btn-warning btn-custom">
+                <span class="glyphicon glyphicon-arrow-left"></span> Go Back
+            </button>
+            <a href="{{ url_for('index') }}" class="btn btn-primary btn-custom">
+                <span class="glyphicon glyphicon-home"></span> Go to Homepage
+            </a>
+        </p>
+        <p id="countdown"></p>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script>
+        // Function to go back to the previous page
+        function goBack() {
+            window.history.back();
+        }
+
+        // Optional: Countdown and redirect to homepage
+        (function() {
+            var seconds = 10; // Countdown from 10 seconds
+            var countdownElement = document.getElementById('countdown');
+            
+            if (countdownElement) { // Check if the element exists
+                countdownElement.innerHTML = "You will be redirected to the homepage in " + seconds + " seconds if you do nothing.";
+
+                var interval = setInterval(function() {
+                    seconds--;
+                    if (countdownElement) {
+                        countdownElement.innerHTML = "You will be redirected to the homepage in " + seconds + " seconds if you do nothing.";
+                    }
+
+                    if (seconds <= 0) {
+                        clearInterval(interval);
+                        // window.location.href = "{{ url_for('index') }}"; // Uncomment to enable redirect
+                        if (countdownElement) {
+                            countdownElement.innerHTML = "Redirecting now...";
+                        }
+                    }
+                }, 1000);
+            }
+        })();
+    </script>
+
+</body>
+</html>

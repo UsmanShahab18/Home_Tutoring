@@ -2,142 +2,206 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
-body{
+
+body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    /* background-image: url(../pic/2.jpg); */
-    background-image: linear-gradient(to top, #fbc2eb 10%, #a6c1ee 100%);
-    color: black;
-    font-family: 'Roboto', sans-serif;
-}
-.form{
-    width: 25%;
-    background: transparent;
-    color: #000000;
-}
-h1{
-    font-size: 36px;
-    text-align: center;
-}
-.box{
-    width: 100%;
-    height: 50px;
-    background: transparent;
-    margin: 30px 0;
-    border: 2px solid rgba(83, 81, 81, 0.2); 
-    border-radius: 40px;
-    padding-left: 10px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    padding: 20px;
+    overflow: hidden;
 }
 
-input[type="file"]{
-    display: none;
+.register-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    z-index: 1;
 }
-label{
+
+.register-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    position: relative;
+}
+
+.register-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.register-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 15px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    color: #000000;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 32px;
+    background: linear-gradient(45deg, #a6c1ee, #fbc2eb);
+    color: #fff;
+}
+
+.register-header h2 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.register-header p {
     font-size: 14px;
-    padding-top: 4.5%;
-    cursor: pointer;
+    color: #666;
 }
-.upload:active{
-    transform: scale(0.9);
+
+.form-group.box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 25px 0;
+    border-bottom: 2px solid #e0e0e0;
+    transition: all 0.3s;
 }
-.icon{
+
+.form-group.box:hover {
+    border-bottom-color: #667eea;
+}
+
+.form-group.box .icon {
     position: absolute;
-    padding: 1%;
-    font-size: large;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #666;
+    transition: all 0.3s;
 }
-.box input{
-    width: 80%;
+
+.form-group.box .form-control {
+    width: 100%;
     height: 100%;
     background: transparent;
     border: none;
     outline: none;
-    font-size: 15px;
-    color: rgb(1, 1, 1);
-    padding-left: 20%;
+    font-size: 16px;
+    color: #333;
+    padding-left: 30px;
+    padding-right: 10px;
 }
-.box input::placeholder{
-    color: #000000;
-    text-align: start;
+
+.form-group.box .form-control::placeholder {
+    color: #999;
 }
-/* this a is used for both forget or register */
-a{
-    color: #000000;
+
+.submit-btn {
+    width: 100%;
+    height: 50px;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 20px;
+    background: linear-gradient(to right, #a6c1ee, #fbc2eb);
+    color: white;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(102, 126, 234, 0.4);
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #666;
+}
+
+.login-link a {
+    color: #667eea;
     text-decoration: none;
+    font-weight: 500;
 }
-a:hover{
+
+.login-link a:hover {
     text-decoration: underline;
 }
-.para{
-    text-align: justify;
-    padding-left: 1rem;
-    padding-bottom: 2rem;
-    font-size: small;
-}
-.rf{
-    text-align: justify;
-    font-size: small;
-    padding-left: 1rem;
-}
-.button{
-    width: 100%;
-    height: 40px;
-}
-.button input{
-    width: 100%;
-    height: 100%;
-    background: white;
-    border: none;  
-    outline: none;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    border-radius: 40px;
-    cursor: pointer;
-}
-@media (max-width: 1020px) {
-    .form{
-        width: 35%;
-    }
 
-    .icon{
-        position: absolute;
-        padding: 1%;
-        padding-top: 0.9rem;
-        font-size: large;
-    }
+.alert {
+    margin: 15px 0;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 14px;
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.decoration-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: -1;
+}
+
+.circle-1 {
+    width: 300px;
+    height: 300px;
+    top: -100px;
+    left: -100px;
+}
+
+.circle-2 {
+    width: 200px;
+    height: 200px;
+    bottom: -50px;
+    right: -50px;
 }
 
 @media (max-width: 768px) {
-    .form{
-        width: 45%
+    .register-card {
+        padding: 30px;
     }
-
-    .icon{
-        position: absolute;
-        padding: 1%;
-        padding-top: 0.9rem;
-        font-size: large;
+    
+    .register-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 28px;
+    }
+    
+    .register-header h2 {
+        font-size: 24px;
     }
 }
 
 @media (max-width: 480px) {
-    body{
-        font-size: 10px;
+    .register-card {
+        padding: 25px;
     }
-
-    .form {
-        width: 80%;
+    
+    body {
+        padding: 15px;
     }
-
-    .icon{
-        position: absolute;
-        padding: 1%;
-        padding-top: 0.9rem;
-        font-size: large;
+    
+    .register-header h2 {
+        font-size: 22px;
+    }
+    
+    .register-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
     }
 }

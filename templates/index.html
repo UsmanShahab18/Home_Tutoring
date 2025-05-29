@@ -211,7 +211,7 @@
                 <div class="footer-col">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#">About Home Tutoring</a></li>
+                        <li><a href="{{ url_for('aboutus') }}">About Home Tutoring</a></li>
                         <li><a href="#">Teams and Careers</a></li>
                         <li><a href="#">For parents</a></li>
                         <li><a href="#">Partner with us</a></li>
@@ -220,24 +220,42 @@
                 <div class="footer-col">
                     <h4>Contact us</h4>
                     <ul>
-                        <li><a href="#">contact@home-class.com</a></li>
-                        <li><a href="#">+44 2032397887</a></li>
-                        <li><a href="#">service01@home-class.com</a></li>
+                        <li><a href="mailto:contact@home-class.com">contact@home-class.com</a></li>
+                        <li><a href="tel:+442032397887">+44 2032397887</a></li>
+                        <li><a href="mailto:service01@home-class.com">service01@home-class.com</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Apply to be a tutor</h4>
                     <ul>
-                        <li><a href="#">tutor@home-class.com</a></li>
+                        <li><a href="mailto:tutor@home-class.com">tutor@home-class.com</a></li>
+                        <li><a href="#">Tutor Requirements</a></li>
+                        <li><a href="#">Application Process</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Home Tutoring</h4>
+                    <h4>Follow Us</h4>
                     <div class="social-links">
                         <a href="#"><i class="fa-brands fa-facebook"></i></a>
                         <a href="#"><i class="fa-brands fa-youtube"></i></a>
                         <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
                     </div>
+                    <div class="newsletter">
+                        <h5>Subscribe to our newsletter</h5>
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Your email">
+                            </div>
+                            <button type="submit" class="btn btn-subscribe">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center footer-bottom">
+                    <p>&copy; 2023 Home Tutoring. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
                 </div>
             </div>
         </div>
