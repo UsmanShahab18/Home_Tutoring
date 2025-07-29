@@ -1,0 +1,231 @@
+/* Tutor Profile Page Styles */
+.tutor-hero-section {
+    padding: 60px 0;
+    color: white;
+    margin-bottom: 40px;
+}
+
+.tutor-profile-container {
+    padding: 40px 15px;
+    background-color: #f8f8f8;
+}
+
+.tutor-sidebar {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    margin-bottom: 30px;
+    position: sticky;
+    top: 20px;
+}
+
+.tutor-main-img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #1a2a4b;
+    margin: 0 auto 20px;
+    display: block;
+}
+
+.tutor-badge {
+    background-color: #a6c1ee;
+    color: #1a2a4b;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.tutor-rating {
+    margin: 15px 0;
+    color: #f8c537;
+    font-size: 1.1em;
+}
+
+.tutor-rating span {
+    color: #555;
+    margin-left: 8px;
+}
+
+.tutor-experience {
+    margin: 15px 0;
+    color: #555;
+}
+
+.tutor-subjects {
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+.subject-tag {
+    background-color: #f0f4fa;
+    color: #1a2a4b;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.tutor-actions {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-book {
+    background-color: #a6c1ee;
+    color: #1a2a4b;
+    padding: 12px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.btn-book:hover {
+    background-color: #8ca9d8;
+    transform: translateY(-2px);
+}
+
+.tutor-main-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.tutor-main-content h2, 
+.tutor-main-content h3 {
+    color: #1a2a4b;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.tutor-main-content h2:after,
+.tutor-main-content h3:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 3px;
+    background-color: #a6c1ee;
+}
+
+.tutor-bio {
+    margin-bottom: 30px;
+    line-height: 1.7;
+    color: #555;
+}
+
+.education-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.education-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    color: #555;
+}
+
+.education-list li:last-child {
+    border-bottom: none;
+}
+
+.availability {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.day-slot {
+    background-color: #f0f4fa;
+    padding: 8px 15px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.day {
+    font-weight: 600;
+    color: #1a2a4b;
+}
+
+.time {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.reviews-container {
+    margin-top: 20px;
+}
+
+.review-item {
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.review-item:last-child {
+    border-bottom: none;
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.reviewer-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 2px solid #a6c1ee;
+}
+
+.reviewer-info {
+    flex-grow: 1;
+}
+
+.review-rating {
+    color: #f8c537;
+}
+
+.review-text {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.review-date {
+    font-size: 0.8em;
+    color: #999;
+    text-align: right;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .tutor-sidebar {
+        position: static;
+        margin-bottom: 30px;
+    }
+    
+    .tutor-main-img {
+        width: 150px;
+        height: 150px;
+    }
+}

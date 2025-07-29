@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Same head content as your ourtutors.html -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ tutor.name }} - Home Tutoring</title>
+    <link rel="website icon" type="jpg" href="/static/pic/4ed71003-870f-4434-bf0b-132654eeb671-removebg-preview.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/header-footer.css">
+    <link rel="stylesheet" href="/static/css/tutor_profile.css">
+    <script src="/static/JavaScript/header&footer.js"></script>
+</head>
+<body>
+
+    <header>
+        <!-- Same header as your ourtutors.html -->
+        <a href="#" class="logo"><img src="/static/pic/4ed71003-870f-4434-bf0b-132654eeb671-removebg-preview.png" class="pic" alt="Home Tutoring Logo"></a>
+        <input type="checkbox" id="menu-bar">
+        <label for="menu-bar" class="menu">Menu</label>
+        <nav class="navbar">
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('OurTutors') }}">Our Tutors</a></li>
+                <li><a href="#">More <i class="fas fa-caret-down icon"></i></a>
+                    <ul>
+                        <li><a href="{{ url_for('aboutus') }}">About us</a></li>
+                        <li><a href="{{ url_for('founder') }}">Founder</a></li>
+                        <li><a href="{{ url_for('FAQs') }}">FAQs</a></li>
+                    </ul>
+                </li>
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container-fluid tutor-hero-section" style="background: linear-gradient(135deg, #001f3f 0%, #003366 100%);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <h1 class="hero-title">{{ tutor.name }}</h1>
+                    <p class="hero-subtitle">{{ tutor.education }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container tutor-profile-container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="tutor-sidebar">
+                    <img src="{{ tutor.image }}" class="tutor-main-img" alt="{{ tutor.name }}">
+                    <div class="tutor-badge">{{ tutor.badge }}</div>
+                    
+                    <div class="tutor-rating">
+                        {% for i in range(5) %}
+                            {% if i < tutor.rating|int %}
+                                <i class="fas fa-star"></i>
+                            {% elif tutor.rating - i > 0 and tutor.rating - i < 1 %}
+                                <i class="fas fa-star-half-alt"></i>
+                            {% else %}
+                                <i class="far fa-star"></i>
+                            {% endif %}
+                        {% endfor %}
+                        <span>{{ tutor.rating }} ({{ tutor.review_count }} reviews)</span>
+                    </div>
+                    
+                    <p class="tutor-experience"><strong>Experience:</strong> {{ tutor.experience }}</p>
+                    
+                    <div class="tutor-subjects">
+                        {% for subject in tutor.subjects %}
+                            <span class="subject-tag">{{ subject }}</span>
+                        {% endfor %}
+                    </div>
+                    
+                    <div class="tutor-actions">
+                        <a href="#" class="btn btn-primary btn-book">Book Trial Lesson</a>
+                        <a href="{{ url_for('OurTutors') }}" class="btn btn-outline">Back to Tutors</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-8">
+                <div class="tutor-main-content">
+                    <h2>About Me</h2>
+                    <p class="tutor-bio">{{ tutor.bio }}</p>
+                    
+                    <h3>Teaching Approach</h3>
+                    <p>{{ tutor.teaching_approach }}</p>
+                    
+                    <h3>Education</h3>
+                    <ul class="education-list">
+                        {% for edu in tutor.education_history %}
+                            <li>{{ edu }}</li>
+                        {% endfor %}
+                    </ul>
+                    
+                    <h3>Availability</h3>
+                    <div class="availability">
+                        {% for day in tutor.availability %}
+                            <div class="day-slot">
+                                <span class="day">{{ day.day }}</span>
+                                <span class="time">{{ day.time }}</span>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    
+                    <h3>Student Reviews</h3>
+                    <div class="reviews-container">
+                        {% for review in tutor.reviews %}
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <img src="{{ review.student_image }}" class="reviewer-img" alt="{{ review.student_name }}">
+                                    <div class="reviewer-info">
+                                        <h5>{{ review.student_name }}</h5>
+                                        <div class="review-rating">
+                                            {% for i in range(5) %}
+                                                {% if i < review.rating %}
+                                                    <i class="fas fa-star"></i>
+                                                {% else %}
+                                                    <i class="far fa-star"></i>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="review-text">{{ review.text }}</p>
+                                <p class="review-date">{{ review.date }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Same footer as your ourtutors.html -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="{{ url_for('aboutus') }}">About Home Tutoring</a></li>
+                        <li><a href="#">Teams and Careers</a></li>
+                        <li><a href="#">For parents</a></li>
+                        <li><a href="#">Partner with us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact us</h4>
+                    <ul>
+                        <li><a href="mailto:contact@home-class.com">contact@home-class.com</a></li>
+                        <li><a href="tel:+442032397887">+44 2032397887</a></li>
+                        <li><a href="mailto:service01@home-class.com">service01@home-class.com</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Apply to be a tutor</h4>
+                    <ul>
+                        <li><a href="mailto:tutor@home-class.com">tutor@home-class.com</a></li>
+                        <li><a href="#">Tutor Requirements</a></li>
+                        <li><a href="#">Application Process</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                    <div class="newsletter">
+                        <h5>Subscribe to our newsletter</h5>
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Your email">
+                            </div>
+                            <button type="submit" class="btn btn-subscribe">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center footer-bottom">
+                    <p>&copy; 2023 Home Tutoring. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

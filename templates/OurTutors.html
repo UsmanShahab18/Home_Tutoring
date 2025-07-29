@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/static/css/header-footer.css">
     <link rel="stylesheet" href="/static/css/ourtutors.css">
     <script src="/static/JavaScript/header&footer.js"></script>
+    <script src="/static/JavaScript/tutors.js"></script>
 </head>
 <body>
 
@@ -98,267 +99,54 @@
             </div>
         </div>
 
-        <div class="row sub_container">
-            <!-- Tutor 1 -->
+        <div class="row sub_container" id="tutors-container">
+            {% for tutor in tutors %}
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                 <div class="tutor-profile panel panel-default">
                     <div class="panel-body text-center">
-                        <div class="tutor-badge">Top Rated</div>
-                        <img src="/static/pic/Tutor_Pic/1.jpg" class="img-responsive img-circle tutor-img" alt="Ms. Sophia Green">
-                        <h3 class="tutor-name">Ms. Sophia Green</h3>
-                        <p class="tutor-education">BS Biology, University of Toronto</p>
+                        {% if tutor.badge %}
+                        <div class="tutor-badge">{{ tutor.badge }}</div>
+                        {% endif %}
+                        <img src="{{ tutor.image }}" class="img-responsive img-circle tutor-img" alt="{{ tutor.name }}">
+                        <h3 class="tutor-name">{{ tutor.name }}</h3>
+                        <p class="tutor-education">{{ tutor.education }}</p>
                         <div class="tutor-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <span>4.7 (28 reviews)</span>
+                            {% for i in range(5) %}
+                                {% if i < tutor.rating|int %}
+                                    <i class="fas fa-star"></i>
+                                {% elif tutor.rating - i > 0 and tutor.rating - i < 1 %}
+                                    <i class="fas fa-star-half-alt"></i>
+                                {% else %}
+                                    <i class="far fa-star"></i>
+                                {% endif %}
+                            {% endfor %}
+                            <span>{{ tutor.rating }} ({{ tutor.review_count }} reviews)</span>
                         </div>
-                        <p class="tutor-experience"><strong>Experience:</strong> 5+ Years</p>
+                        <p class="tutor-experience"><strong>Experience:</strong> {{ tutor.experience }}</p>
                         <div class="tutor-subjects">
-                            <span class="subject-tag">Biology</span>
-                            <span class="subject-tag">Chemistry</span>
-                            <span class="subject-tag">Geography</span>
+                            {% for subject in tutor.subjects %}
+                                <span class="subject-tag">{{ subject }}</span>
+                            {% endfor %}
                         </div>
-                        <p class="tutor-quote"><em>"Inspiring curiosity, one student at a time."</em></p>
+                        <p class="tutor-quote"><em>"{{ tutor.quote }}"</em></p>
                         <div class="tutor-actions">
-                            <a href="#" class="btn btn-primary tutor-link">View Profile</a>
+                            <a href="{{ url_for('tutor_profile', tutor_id=tutor.id) }}" class="btn btn-primary tutor-link">View Profile</a>
                             <a href="#" class="btn btn-outline tutor-link">Book Trial</a>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Tutor 2 -->
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                <div class="tutor-profile panel panel-default">
-                    <div class="panel-body text-center">
-                        <div class="tutor-badge">Popular</div>
-                        <img src="/static/pic/Tutor_Pic/2.jpg" class="img-responsive img-circle tutor-img" alt="Ms. Charlotte Hughes">
-                        <h3 class="tutor-name">Ms. Charlotte Hughes</h3>
-                        <p class="tutor-education">BA Economics & East Asian Studies, Harvard University</p>
-                        <div class="tutor-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>5.0 (42 reviews)</span>
-                        </div>
-                        <p class="tutor-experience"><strong>Experience:</strong> 4 Years</p>
-                        <div class="tutor-subjects">
-                            <span class="subject-tag">Chinese</span>
-                            <span class="subject-tag">Economics</span>
-                            <span class="subject-tag">Geography</span>
-                        </div>
-                        <p class="tutor-quote"><em>"Unlocking potential through understanding."</em></p>
-                        <div class="tutor-actions">
-                            <a href="#" class="btn btn-primary tutor-link">View Profile</a>
-                            <a href="#" class="btn btn-outline tutor-link">Book Trial</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tutor 3 -->
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                <div class="tutor-profile panel panel-default">
-                    <div class="panel-body text-center">
-                        <div class="tutor-badge">Expert</div>
-                        <img src="/static/pic/Tutor_Pic/3.jpg" class="img-responsive img-circle tutor-img" alt="Mr. John Anderson">
-                        <h3 class="tutor-name">Mr. John Anderson</h3>
-                        <p class="tutor-education">MSc Mathematics, University of Cambridge</p>
-                        <div class="tutor-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>5.0 (36 reviews)</span>
-                        </div>
-                        <p class="tutor-experience"><strong>Experience:</strong> 7 Years</p>
-                        <div class="tutor-subjects">
-                            <span class="subject-tag">Math</span>
-                            <span class="subject-tag">Physics</span>
-                            <span class="subject-tag">Chemistry</span>
-                        </div>
-                        <p class="tutor-quote"><em>"Making complex concepts simple and clear."</em></p>
-                        <div class="tutor-actions">
-                            <a href="#" class="btn btn-primary tutor-link">View Profile</a>
-                            <a href="#" class="btn btn-outline tutor-link">Book Trial</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tutor 4 -->
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                <div class="tutor-profile panel panel-default">
-                    <div class="panel-body text-center">
-                        <img src="/static/pic/Tutor_Pic/4.jpg" class="img-responsive img-circle tutor-img" alt="Ms. Olivia Bennett">
-                        <h3 class="tutor-name">Ms. Olivia Bennett</h3>
-                        <p class="tutor-education">MSc Physics, Stanford University</p>
-                        <div class="tutor-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <span>4.2 (19 reviews)</span>
-                        </div>
-                        <p class="tutor-experience"><strong>Experience:</strong> 6+ Years</p>
-                        <div class="tutor-subjects">
-                            <span class="subject-tag">Physics</span>
-                            <span class="subject-tag">Math</span>
-                            <span class="subject-tag">Chemistry</span>
-                        </div>
-                        <p class="tutor-quote"><em>"Exploring the wonders of science together."</em></p>
-                        <div class="tutor-actions">
-                            <a href="#" class="btn btn-primary tutor-link">View Profile</a>
-                            <a href="#" class="btn btn-outline tutor-link">Book Trial</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tutor 5 -->
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                <div class="tutor-profile panel panel-default">
-                    <div class="panel-body text-center">
-                        <img src="/static/pic/Tutor_Pic/5.jpg" class="img-responsive img-circle tutor-img" alt="Mr. Michael Brooks">
-                        <h3 class="tutor-name">Mr. Michael Brooks</h3>
-                        <p class="tutor-education">BA History, University of Chicago</p>
-                        <div class="tutor-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <span>4.6 (23 reviews)</span>
-                        </div>
-                        <p class="tutor-experience"><strong>Experience:</strong> 5 Years</p>
-                        <div class="tutor-subjects">
-                            <span class="subject-tag">History</span>
-                            <span class="subject-tag">Philosophy</span>
-                            <span class="subject-tag">English</span>
-                        </div>
-                        <p class="tutor-quote"><em>"Connecting the past to the present."</em></p>
-                        <div class="tutor-actions">
-                            <a href="#" class="btn btn-primary tutor-link">View Profile</a>
-                            <a href="#" class="btn btn-outline tutor-link">Book Trial</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tutor 6 -->
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                <div class="tutor-profile panel panel-default">
-                    <div class="panel-body text-center">
-                        <div class="tutor-badge">New</div>
-                        <img src="/static/pic/Tutor_Pic/6.jpg" class="img-responsive img-circle tutor-img" alt="Ms. Emily Carter">
-                        <h3 class="tutor-name">Ms. Emily Carter</h3>
-                        <p class="tutor-education">MA English Literature, University of Oxford</p>
-                        <div class="tutor-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <span>4.0 (8 reviews)</span>
-                        </div>
-                        <p class="tutor-experience"><strong>Experience:</strong> 8 Years</p>
-                        <div class="tutor-subjects">
-                            <span class="subject-tag">English</span>
-                            <span class="subject-tag">Philosophy</span>
-                            <span class="subject-tag">History</span>
-                        </div>
-                        <p class="tutor-quote"><em>"Fostering a lifelong love for literature."</em></p>
-                        <div class="tutor-actions">
-                            <a href="#" class="btn btn-primary tutor-link">View Profile</a>
-                            <a href="#" class="btn btn-outline tutor-link">Book Trial</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
 
+        {% if has_more %}
         <div class="row text-center">
             <div class="col-md-12">
-                <button class="btn btn-load-more">Load More Tutors</button>
+                <button id="load-more-btn" class="btn btn-load-more">Load More Tutors</button>
             </div>
         </div>
-
-        <div class="row testimonial-section">
-            <div class="col-md-12 text-center">
-                <h2 class="section-title">What Our Students Say</h2>
-                <div class="divider"></div>
-            </div>
-            <div class="col-md-4">
-                <div class="testimonial-item">
-                    <div class="testimonial-content">
-                        <i class="fas fa-quote-left quote-icon"></i>
-                        <p>Ms. Green made biology come alive for me. Her teaching style is engaging and she breaks down complex concepts so they're easy to understand.</p>
-                        <i class="fas fa-quote-right quote-icon"></i>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/women/25.jpg" class="img-circle testimonial-img">
-                        <h5>Sarah Johnson</h5>
-                        <p>Grade 11 Student</p>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="testimonial-item">
-                    <div class="testimonial-content">
-                        <i class="fas fa-quote-left quote-icon"></i>
-                        <p>Mr. Anderson's math tutoring helped me improve my grade from a C to an A in just three months. His patience and clear explanations were exactly what I needed.</p>
-                        <i class="fas fa-quote-right quote-icon"></i>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="img-circle testimonial-img">
-                        <h5>Michael Chen</h5>
-                        <p>Grade 10 Student</p>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="testimonial-item">
-                    <div class="testimonial-content">
-                        <i class="fas fa-quote-left quote-icon"></i>
-                        <p>Learning Chinese with Ms. Hughes has been amazing. She makes the language accessible and fun, and I've progressed much faster than I expected.</p>
-                        <i class="fas fa-quote-right quote-icon"></i>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="https://randomuser.me/api/portraits/women/45.jpg" class="img-circle testimonial-img">
-                        <h5>Emily Rodriguez</h5>
-                        <p>Adult Learner</p>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% endif %}
+    </div>
 
         <div class="row why-choose-us-section">
             <div class="col-md-12 text-center">

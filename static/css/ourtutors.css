@@ -112,6 +112,17 @@ body {
     align-items: stretch;
 }
 
+/* .tutor-profile {
+    transition: all 0.5s ease;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.tutor-profile.show {
+    opacity: 1;
+    transform: translateY(0);
+} */
+
 .tutor-profile {
     margin-bottom: 30px;
     border-radius: 10px;
@@ -447,6 +458,7 @@ body {
     
     .tutor-profile {
         width: 280px;
+        margin: auto;
     }
 }
 
@@ -470,6 +482,7 @@ body {
     .tutor-profile {
         width: 100%;
         max-width: 350px;
+        margin: auto;
     }
     
     .tutor-actions {
@@ -498,7 +511,14 @@ body {
         padding: 5px 10px;
         font-size: 0.9em;
     }
+
+    .tutor-profile {
+        margin: auto;
+    }
     
+    .btn-load-more{
+        margin: auto;
+    }
     .testimonial-item {
         padding: 20px;
     }

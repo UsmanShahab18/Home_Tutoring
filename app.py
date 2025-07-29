@@ -191,7 +191,7 @@ def signup():
                 try:
                     cursor = mysql.connection.cursor()
                     cursor.execute('INSERT INTO users (username, password, email, full_name, contact) VALUES (%s, %s, %s, %s, %s)',
-                                   (username, hashed_password, email, full_name, contact))
+                                (username, hashed_password, email, full_name, contact))
                     mysql.connection.commit()
                     cursor.close()
                     return jsonify({'status': 'success', 'message': 'You have successfully registered! Redirecting to login...'}), 200
@@ -403,9 +403,294 @@ def FAQs():
 def founder():
     return render_template('founder.html', loggedin='loggedin' in session, is_admin=session.get('is_admin', False))
 
+# Sample tutor data - in a real app, this would come from a database
+TUTORS = {
+    'sophia-green': {
+        'id': 'sophia-green',
+        'name': 'Ms. Sophia Green',
+        'education': 'BS Biology, University of Toronto',
+        'rating': 4.7,
+        'review_count': 28,
+        'experience': '5+ Years',
+        'subjects': ['Biology', 'Chemistry', 'Geography'],
+        'quote': 'Inspiring curiosity, one student at a time.',
+        'image': '/static/pic/Tutor_Pic/1.jpg',
+        'badge': 'Top Rated',
+        'bio': 'I am a passionate biology educator with over 5 years of experience teaching students of all levels.',
+        'teaching_approach': 'Student-centered approach with multimedia resources.',
+        'education_history': [
+            'BS Biology, University of Toronto (2015-2019)',
+            'Teaching Certification, Ontario College of Teachers (2020)'
+        ],
+        'availability': [
+            {'day': 'Monday', 'time': '3pm - 7pm'},
+            {'day': 'Wednesday', 'time': '4pm - 8pm'}
+        ],
+        'reviews': [
+            {
+                'student_name': 'Sarah Johnson',
+                'student_image': 'https://randomuser.me/api/portraits/women/25.jpg',
+                'rating': 5,
+                'text': 'Ms. Green made biology come alive for me.',
+                'date': 'June 15, 2023'
+            }
+        ]
+    },
+    'charlotte-hughes': {
+        'id': 'charlotte-hughes',
+        'name': 'Ms. Charlotte Hughes',
+        'education': 'BA Economics & East Asian Studies, Harvard University',
+        'rating': 5.0,
+        'review_count': 42,
+        'experience': '4 Years',
+        'subjects': ['Chinese', 'Economics', 'Geography'],
+        'quote': 'Unlocking potential through understanding.',
+        'image': '/static/pic/Tutor_Pic/2.jpg',
+        'badge': 'Popular',
+        'bio': 'Economics and Chinese language tutor fluent in Mandarin.',
+        'teaching_approach': 'Combines academic standards with cultural immersion.',
+        'education_history': [
+            'BA Economics & East Asian Studies, Harvard University (2016-2020)'
+        ],
+        'availability': [
+            {'day': 'Tuesday', 'time': '3pm - 8pm'},
+            {'day': 'Thursday', 'time': '4pm - 8pm'}
+        ],
+        'reviews': [
+            {
+                'student_name': 'Emily Rodriguez',
+                'student_image': 'https://randomuser.me/api/portraits/women/45.jpg',
+                'rating': 5,
+                'text': 'Learning Chinese with Ms. Hughes has been amazing.',
+                'date': 'May 22, 2023'
+            }
+        ]
+    },
+    'john-anderson': {
+        'id': 'john-anderson',
+        'name': 'Mr. John Anderson',
+        'education': 'MSc Mathematics, University of Cambridge',
+        'rating': 5.0,
+        'review_count': 36,
+        'experience': '7 Years',
+        'subjects': ['Math', 'Physics', 'Chemistry'],
+        'quote': 'Making complex concepts simple and clear.',
+        'image': '/static/pic/Tutor_Pic/3.jpg',
+        'badge': 'Expert',
+        'bio': 'Mathematics specialist with 7 years of teaching experience.',
+        'teaching_approach': 'Focuses on conceptual understanding and problem-solving.',
+        'education_history': [
+            'MSc Mathematics, University of Cambridge (2014-2016)',
+            'BSc Mathematics, Imperial College London (2011-2014)'
+        ],
+        'availability': [
+            {'day': 'Monday', 'time': '4pm - 9pm'},
+            {'day': 'Wednesday', 'time': '3pm - 8pm'},
+            {'day': 'Friday', 'time': '2pm - 7pm'}
+        ],
+        'reviews': [
+            {
+                'student_name': 'Michael Chen',
+                'student_image': 'https://randomuser.me/api/portraits/men/32.jpg',
+                'rating': 5,
+                'text': 'Mr. Anderson helped me ace my calculus exams.',
+                'date': 'March 10, 2023'
+            }
+        ]
+    },
+    'olivia-bennett': {
+        'id': 'olivia-bennett',
+        'name': 'Ms. Olivia Bennett',
+        'education': 'MSc Physics, Stanford University',
+        'rating': 4.2,
+        'review_count': 19,
+        'experience': '6+ Years',
+        'subjects': ['Physics', 'Math', 'Chemistry'],
+        'quote': 'Exploring the wonders of science together.',
+        'image': '/static/pic/Tutor_Pic/4.jpg',
+        'badge': '',
+        'bio': 'Physics educator with research experience at CERN.',
+        'teaching_approach': 'Hands-on experiments with theoretical foundations.',
+        'education_history': [
+            'MSc Physics, Stanford University (2015-2017)',
+            'BSc Physics, MIT (2011-2015)'
+        ],
+        'availability': [
+            {'day': 'Tuesday', 'time': '3pm - 8pm'},
+            {'day': 'Saturday', 'time': '10am - 3pm'}
+        ],
+        'reviews': [
+            {
+                'student_name': 'David Wilson',
+                'student_image': 'https://randomuser.me/api/portraits/men/45.jpg',
+                'rating': 4,
+                'text': 'Olivia makes physics concepts so much clearer.',
+                'date': 'February 5, 2023'
+            }
+        ]
+    },
+    'michael-brooks': {
+        'id': 'michael-brooks',
+        'name': 'Mr. Michael Brooks',
+        'education': 'BA History, University of Chicago',
+        'rating': 4.6,
+        'review_count': 23,
+        'experience': '5 Years',
+        'subjects': ['History', 'Philosophy', 'English'],
+        'quote': 'Connecting the past to the present.',
+        'image': '/static/pic/Tutor_Pic/5.jpg',
+        'badge': '',
+        'bio': 'History specialist with focus on European and American history.',
+        'teaching_approach': 'Contextual learning with primary sources.',
+        'education_history': [
+            'BA History, University of Chicago (2014-2018)',
+            'MA History Education, Columbia University (2019-2020)'
+        ],
+        'availability': [
+            {'day': 'Monday', 'time': '4pm - 8pm'},
+            {'day': 'Thursday', 'time': '3pm - 7pm'}
+        ],
+        'reviews': [
+            {
+                'student_name': 'Emma Thompson',
+                'student_image': 'https://randomuser.me/api/portraits/women/33.jpg',
+                'rating': 5,
+                'text': 'Michael brings history to life with his engaging style.',
+                'date': 'January 15, 2023'
+            }
+        ]
+    },
+    'emily-carter': {
+        'id': 'emily-carter',
+        'name': 'Ms. Emily Carter',
+        'education': 'MA English Literature, University of Oxford',
+        'rating': 4.0,
+        'review_count': 8,
+        'experience': '8 Years',
+        'subjects': ['English', 'Philosophy', 'History'],
+        'quote': 'Fostering a lifelong love for literature.',
+        'image': '/static/pic/Tutor_Pic/6.jpg',
+        'badge': 'New',
+        'bio': 'Literature specialist with focus on British and American classics.',
+        'teaching_approach': 'Textual analysis with historical context.',
+        'education_history': [
+            'MA English Literature, University of Oxford (2013-2015)',
+            'BA English, University of Cambridge (2010-2013)'
+        ],
+        'availability': [
+            {'day': 'Wednesday', 'time': '3pm - 8pm'},
+            {'day': 'Friday', 'time': '2pm - 7pm'}
+        ],
+        'reviews': [
+            {
+                'student_name': 'James Wilson',
+                'student_image': 'https://randomuser.me/api/portraits/men/28.jpg',
+                'rating': 4,
+                'text': 'Emily helped me improve my essay writing significantly.',
+                'date': 'December 10, 2022'
+            }
+        ]
+    },
+    'david-kim': {
+        'id': 'david-kim',
+        'name': 'Mr. David Kim',
+        'education': 'PhD Computer Science, MIT',
+        'rating': 4.8,
+        'review_count': 31,
+        'experience': '10+ Years',
+        'subjects': ['Computer Science', 'Math', 'Physics'],
+        'quote': 'Coding is the language of the future.',
+        'image': 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=200&q=80',
+        'badge': 'Expert',
+        'bio': 'Computer science expert with industry and teaching experience.',
+        'teaching_approach': 'Project-based learning with real-world applications.',
+        'education_history': [
+            'PhD Computer Science, MIT (2010-2015)',
+            'MSc Computer Science, Stanford University (2008-2010)'
+        ],
+        'availability': [
+            {'day': 'Tuesday', 'time': '4pm - 9pm'},
+            {'day': 'Thursday', 'time': '4pm - 9pm'},
+            {'day': 'Sunday', 'time': '10am - 3pm'}
+        ],
+        'reviews': [
+            {
+                'student_name': 'Alex Johnson',
+                'student_image': 'https://randomuser.me/api/portraits/men/22.jpg',
+                'rating': 5,
+                'text': 'David explains complex programming concepts with ease.',
+                'date': 'November 5, 2022'
+            }
+        ]
+    },
+    'sarah-wilson': {
+        'id': 'sarah-wilson',
+        'name': 'Ms. Sarah Wilson',
+        'education': 'MA French Literature, Sorbonne University',
+        'rating': 4.9,
+        'review_count': 45,
+        'experience': '6 Years',
+        'subjects': ['French', 'Spanish', 'English'],
+        'quote': 'Language opens doors to new worlds.',
+        'image': 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=200&q=80',
+        'badge': 'Popular',
+        'bio': 'Polyglot language instructor fluent in 5 languages.',
+        'teaching_approach': 'Immersive language learning with cultural context.',
+        'education_history': [
+            'MA French Literature, Sorbonne University (2014-2016)',
+            'BA Linguistics, University of California (2010-2014)'
+        ],
+        'availability': [
+            {'day': 'Monday', 'time': '3pm - 8pm'},
+            {'day': 'Wednesday', 'time': '3pm - 8pm'},
+            {'day': 'Friday', 'time': '3pm - 6pm'}
+        ],
+        'reviews': [
+            {
+                'student_name': 'Sophia Martinez',
+                'student_image': 'https://randomuser.me/api/portraits/women/30.jpg',
+                'rating': 5,
+                'text': 'Sarah makes learning French enjoyable and effective.',
+                'date': 'October 20, 2022'
+            }
+        ]
+    }
+}
+
+@app.route('/tutor/<tutor_id>')
+def tutor_profile(tutor_id):
+    tutor = TUTORS.get(tutor_id)
+    if not tutor:
+        # Handle case where tutor isn't found - could redirect or show 404
+        return "Tutor not found", 404
+    return render_template('tutor_profile.html', tutor=tutor)
+
+# Update your OurTutors route to include links to profiles
 @app.route('/OurTutors')
 def OurTutors():
-    return render_template('OurTutors.html', loggedin='loggedin' in session, is_admin=session.get('is_admin', False))
+    tutors = list(TUTORS.values())
+    # Initially show only first 4 tutors
+    initial_tutors = tutors[:4]
+    return render_template('ourtutors.html', 
+                        tutors=initial_tutors, 
+                        total_tutors=len(tutors),
+                        has_more=len(tutors) > 4)
+
+@app.route('/load-more-tutors')
+def load_more_tutors():
+    offset = request.args.get('offset', default=4, type=int)
+    limit = request.args.get('limit', default=4, type=int)
+    
+    tutors = list(TUTORS.values())
+    paginated_tutors = tutors[offset:offset+limit]
+    
+    has_more = (offset + limit) < len(tutors)
+    
+    return jsonify({
+        'tutors': paginated_tutors,
+        'has_more': has_more,
+        'new_offset': offset + limit
+    })
 
 
 # --- Logout ---
